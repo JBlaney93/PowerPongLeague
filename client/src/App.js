@@ -5,7 +5,7 @@ import MainContainer from './containers/MainContainer';
 function App() {
   return (
     <div className="App">
-      <h8>Hi gang from App.js</h8>
+      <h1>Ping Pong Play</h1>
       <MainContainer />
     </div>
   );
