@@ -4,7 +4,7 @@ import MainContainer from './containers/MainContainer';
 
 function App() {
   return (
-    <div className="App">
+    <div className="container">
       <h1>Ping Pong Play</h1>
       <MainContainer />
     </div>

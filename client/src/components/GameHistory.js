@@ -1,7 +1,10 @@
+import { Link } from "react-router-dom";
+
 const GameHistory = () => {
     return(
         <div>
-            <p>Hello from GameHistory.js</p>
+            <p>GAME HISTORY HERE</p>
+            <Link to="/">Home</Link>
         </div>
     )
 }
