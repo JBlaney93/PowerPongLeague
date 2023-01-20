@@ -1,4 +1,4 @@
-const players = [
+const playersData = [
     {name: "Fedau"},
     {name: "Lee"},
     {name: "Kyle"},
@@ -10,7 +10,7 @@ const players = [
     {name: "Jill"}
 ];
 
-const games = [
+const gamesData = [
     {
         datetime: new Date(),
         winner_score: 11,
@@ -23,10 +23,12 @@ const games = [
     {
         datetime: new Date(),
         winner_score: 11,
-        loser_score: 8,
+        loser_score: 9,
         winner_id: null,
         winner_name: "James Blaney",
         loser_id: null,
         loser_name: "Séamus"
     }
 ];
+
+module.exports = { playersData, gamesData }
