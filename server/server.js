@@ -9,17 +9,28 @@ const cors = require('cors');
 const { MongoClient } = require('mongodb');
 app.use(cors());
 
-const createRouter = require('./helpers/create_router.js');
+const createPlayersRouter = require('./routes/players_router.js');
+const createGamesRouter = require('./routes/games_router.js');
 
 // connect to database
 
 MongoClient.connect('mongodb://127.0.0.1:27017', {useUnifiedTopology:true})
 .then(client => {
-    const db = client.db('pingpong');
-    const playerCollection = db.collection('players');
 
-    const playerRouter = createRouter(playerCollection);
-    app.use('/api/players', playerRouter);
+    // locate collections in database
+
+    const db = client.db('pingpong');
+    const playersCollection = db.collection('players');
+    const gamesCollection = db.collection('games');
+
+
+    // hook up routers
+
+    const playersRouter = createPlayersRouter(playersCollection);
+    const gamesRouter = createGamesRouter(gamesCollection)
+
+    app.use('/api/players', playersRouter);
+    app.use('/api/games', gamesRouter)
 
 })
 .catch(console.error);
