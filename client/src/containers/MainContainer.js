@@ -1,7 +1,10 @@
+import GameForm from "../components/GameForm";
+
 const MainContainer = () => {
     return(
         <div>
-            <p>hello from MainContainer.js</p>
+            <p>Hello from MainContainer.js</p>
+            <GameForm />
         </div>
     )
 }
