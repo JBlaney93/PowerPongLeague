@@ -1,7 +1,10 @@
+import { Link } from "react-router-dom";
+
 const GameForm = () => {
     return(
         <div>
-            <p>Hello from GameForm.js</p>
+            <p>GAME FORM HERE</p>
+            <Link to="/">Home</Link>
         </div>
     )
 }
