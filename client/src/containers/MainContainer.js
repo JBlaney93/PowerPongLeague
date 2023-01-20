@@ -1,4 +1,5 @@
 import GameForm from "../components/GameForm";
+import GameHistory from "../components/GameHistory";
 import PlayerForm from "../components/PlayerForm";
 
 const MainContainer = () => {
@@ -7,6 +8,7 @@ const MainContainer = () => {
             <p>Hello from MainContainer.js</p>
             <GameForm />
             <PlayerForm />
+            <GameHistory />
         </div>
     )
 }
