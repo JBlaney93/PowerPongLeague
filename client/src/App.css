@@ -87,3 +87,11 @@ li {
   list-style: none;
   font-size: 40px;
 }
+
+.serve {
+  color: green;
+}
+
+.noserve {
+  /* color: red; */
+}
