@@ -49,7 +49,7 @@ const GameForm = ({ addToGameHistory }) => {
             l_score: l_score
         }
 
-        console.log(newGame);
+        // console.log(newGame);
         addToGameHistory(newGame);
     }
 

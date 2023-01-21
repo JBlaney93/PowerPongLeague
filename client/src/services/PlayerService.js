@@ -1,4 +1,4 @@
-const baseURL = "http://localhost:9000/api/players"
+const baseURL = "http://localhost:9000/api/players/"
 
 const PlayerService = {
 
@@ -7,8 +7,20 @@ const PlayerService = {
         .then(result => result.json())
     },
 
-    addBooking (booking) {
+    findPlayer (id) {
+        return fetch(baseURL + id)
+        .then(result => result.json())
+    },
 
+    addPlayer (player) {
+        return fetch(baseURL, {
+            method: 'POST',
+            body: JSON.stringify(player),
+            headers: {
+                'Content-type':'application/json'
+            }
+        })
+        .then(res => res.json());
     }
     
 }

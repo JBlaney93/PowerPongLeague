@@ -1,10 +1,15 @@
-const baseURL = "http://localhost:9000/api/games"
+const baseURL = "http://localhost:9000/api/games/"
 
 const GameService = {
 
     getGames () {
         return fetch(baseURL)
-        .then(result => result.json())
+        .then(result => result.json());
+    },
+
+    findGame (id) {
+        return fetch(baseURL + id)
+        .then(result => result.json());
     },
 
     addGame (game) {
