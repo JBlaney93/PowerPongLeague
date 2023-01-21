@@ -13,8 +13,8 @@ const playersData = [
 const gamesData = [
     {
         datetime: new Date(),
-        winner_score: 11,
-        loser_score: 8,
+        w_score: 11,
+        l_score: 8,
         winner_id: null,
         winner_name: "Séamus",
         loser_id: null,
@@ -22,8 +22,8 @@ const gamesData = [
     },
     {
         datetime: new Date(),
-        winner_score: 11,
-        loser_score: 9,
+        w_score: 11,
+        l_score: 9,
         winner_id: null,
         winner_name: "James Blaney",
         loser_id: null,

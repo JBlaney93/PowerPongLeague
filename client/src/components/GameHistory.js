@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
-import GameHistoryItem from "./GameHistoryItem";
+import GameHistoryItem from "./GameItem";
 import React from "react";
 
 const GameHistory = ({ gameHistory }) => {
+    
+    console.log(gameHistory);
     
     const gameList = gameHistory.map((game, index) => {
         return <GameHistoryItem
@@ -14,9 +16,9 @@ const GameHistory = ({ gameHistory }) => {
     return(
             <div>
                 <p>GAME HISTORY HERE</p>
-                <p>
+                <ul>
                     {gameList}
-                </p>
+                </ul>
                 <Link to="/">Home</Link>
             </div>
     )

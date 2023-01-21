@@ -52,8 +52,9 @@ const createPlayersRouter = (collection) => {
                 .insertOne(req.body)
                 .then(result => response.json(result))
             } else {
-                console.log(result);
-                response.send("player already exists")
+                console.log("player already exists");
+                response.status(500);
+                response.json({ status: 500, error: err })
             }
         })
         .catch(err => {
