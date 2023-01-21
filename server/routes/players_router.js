@@ -78,7 +78,6 @@ const createPlayersRouter = (collection) => {
     
     // delete by id (complicated—how do we handle instances of games that contain that player)
 
-
     return router;
 }
 

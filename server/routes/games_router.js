@@ -40,11 +40,44 @@ const createGamesRouter = (collection) => {
         .insertOne(req.body)
         .then(result => res.json(result))
         .catch(err => {
-            
-        })
-    })
+            console.error(err);
+            res.status(500);
+            res.json({ status: 500, error: err})
+        });
+    });
+
+    // update by id
+
+    router.put('/:id', (req, res) => {
+
+        const filter = {_id: ObjectId(req.params.id)}
+        const updatedGame = req.body
+        delete updatedGame._id
+
+        collection
+        .updateOne(filter, { $set: updatedGame })
+        .then(result => res.json(result))
+        .catch(err => {
+            console.error(err);
+            res.status(500);
+            res.json({ status: 500, error: err })
+        });
+    });
 
     // delete by id
+
+    router.delete('/:id', (req, res) => {
+
+        const id = ObjectId(req.params.id);
+        collection
+        .deleteOne({_id: id})
+        .then(result => res.json(result))
+        .catch(err => {
+            console.error(err);
+            res.status(500);
+            res.json({ status: 500, error: err })
+        });
+    });
 
     // return games in chronological order
 
