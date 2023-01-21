@@ -1,9 +1,9 @@
 const { MongoClient } = require('mongodb');
 const { playersData, gamesData } = require('./data');
 
-const url = 'mongodb://127.0.0.1:27017';
+const uri = 'mongodb://127.0.0.1:27017';
 
-const client = new MongoClient(url);
+const client = new MongoClient(uri);
 
 async function run () {
     try {
