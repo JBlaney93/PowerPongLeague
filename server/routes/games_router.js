@@ -33,6 +33,17 @@ const createGamesRouter = (collection) => {
         });
     });
 
+    // save game
+
+    router.post('/', (req, res) => {
+        collection
+        .insertOne(req.body)
+        .then(result => res.json(result))
+        .catch(err => {
+            
+        })
+    })
+
     // delete by id
 
     // return games in chronological order

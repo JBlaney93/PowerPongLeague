@@ -38,19 +38,30 @@ const createPlayersRouter = (collection) => {
     router.post('/', (req, response) => { 
 
         // check if name already exists in collection
-        // const name = req.params.name
-        // collection
-        // .find({name: name})
+        const name = req.body.name
 
         collection
-        .insertOne(req.body)
-        .then(result => response.json(result))
+        .find({name: name})
+        .toArray()
+        .then(result => {
+
+            // if name exists, reject it
+
+            if (result.length === 0) {
+                collection
+                .insertOne(req.body)
+                .then(result => response.json(result))
+            } else {
+                console.log(result);
+                response.send("player already exists")
+            }
+        })
         .catch(err => {
             console.error(err);
-            res.status(500);
-            res.json({ status: 500, error: err})
-        })
-    })
+            response.status(500);
+            response.json({ status: 500, error: err})
+        });
+    });
 
     // update player (id needs to stay the same to not disrupt the attachment of the player to the games)
 
