@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from 'react';
 
-
 const GameForm = ({ addToGameHistory }) => {
     
     const [counter1, setCounter1] = useState(0)
     const [counter2, setCounter2] = useState(0)
+
     const [serveTracker, setServeTracker] = useState(0)
+    const serve = serveTracker % 4 < 2 ? 'serve' : 'noserve'  
+
     const [winner, setWinner] = useState("")
     const [loser, setLoser] = useState("")
     const [w_score, setW_score] = useState("")
@@ -40,22 +42,16 @@ const GameForm = ({ addToGameHistory }) => {
     const handleWin = (event) => {
         event.preventDefault()
 
-        
         const newGame = {
-            date: new Date(),
+            datetime: new Date(),
             winner: winner,
             loser: loser,
             w_score: w_score,
             l_score: l_score
         }
 
-        // console.log(newGame);
         addToGameHistory(newGame);
     }
-
-
-
-    const serve = serveTracker % 4 < 2 ? 'serve' : 'noserve'  
     
     return(
         <div>
@@ -73,15 +69,15 @@ const GameForm = ({ addToGameHistory }) => {
                         <p>{serveTracker}</p>
                     </div>
                     {/* <GameHistory data={currentGame} /> */}
-
-
                 <input type="submit"></input>
             </form>
-            <Link to="/">Home</Link>
+            <Link to="/">
+                Home
+            </Link>
            <p></p>
             <Link to="/game-history">
-                        GAME HISTORY
-                    </Link>
+                GAME HISTORY
+            </Link>
         </div>
 
     )
