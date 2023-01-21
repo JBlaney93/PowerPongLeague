@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import GameHistoryItem from "./GameHistoryItem";
+import GameHistoryItem from "./GameItem";
 import React from "react";
 
 const GameHistory = ({ gameHistory }) => {

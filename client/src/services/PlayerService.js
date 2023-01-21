@@ -7,7 +7,7 @@ const PlayerService = {
         .then(result => result.json())
     },
 
-    addBooking () {
+    addBooking (booking) {
 
     }
     

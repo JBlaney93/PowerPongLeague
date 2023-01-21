@@ -1,11 +1,16 @@
+// dependencies
+
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
+
+// components
+
 import GameForm from "../components/GameForm";
 import GameHistory from "../components/GameHistory";
 import PlayerForm from "../components/PlayerForm";
 import MainMenu from "../components/MainMenu";
 import PlayerService from "../services/PlayerService";
-import { useEffect, useState } from "react";
+import GameService from "../services/GameService";
 
 
 const MainContainer = () => {
@@ -22,8 +27,13 @@ const MainContainer = () => {
     const [players, setPlayers] = useState([])
 
     useEffect(()=>{
-        PlayerService.getPlayers()
-            .then(players => setPlayers(players))
+
+        Promise.all([PlayerService.getPlayers(), GameService.getGames()])
+        .then((result) => {
+            setPlayers(result[0]);
+            setGameHistory(result[1]);
+        })
+        
     },[])
 
 
@@ -35,7 +45,7 @@ const MainContainer = () => {
                         <Route path="/game-form" 
                             element={ <GameForm addToGameHistory={addToGameHistory} />} />
                         <Route path="/player-form" 
-                            element={ <PlayerForm />} />
+                            element={ <PlayerForm players = {players} />} />
                         <Route path="/game-history" 
                             element={ <GameHistory gameHistory={gameHistory}/>} />
                     </Routes>
