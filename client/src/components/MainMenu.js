@@ -11,7 +11,7 @@ const MainMenu = () => {
                 </li>
                 <li>
                     <Link to="/player-form">
-                        ADD PLAYER
+                        CREATE NEW PLAYER
                     </Link>
                 </li>
                 <li>
