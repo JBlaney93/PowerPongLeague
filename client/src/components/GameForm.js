@@ -28,22 +28,19 @@ const GameForm = ({ addToGameHistory }) => {
 
         setServeTracker(counter1 + counter2);
 
-        if (counter1 === 11 || counter2 === 11) {
-
+        if (counter1 >= 11 && counter1 -2 >= counter2) {
+            setWinner("Player 1")
+            setLoser("Player 2")
+            setW_score(counter1)
+            setL_score(counter2)
             setGameWon(true);
-
-            if (counter1 > counter2) {
-                setWinner("Player 1")
-                setLoser("Player 2")
-                setW_score(counter1)
-                setL_score(counter2)
-            } else {
-                setWinner("Player 2")
-                setLoser("Player 1")
-                setW_score(counter2)
-                setL_score(counter1)
-            }
-        }
+        } else if (counter2 >= 11 && counter2 -2 >= counter1) {
+            setWinner("Player 2")
+            setLoser("Player 1")
+            setW_score(counter2)
+            setL_score(counter1)
+            setGameWon(true);
+        } 
 
     }, [counter1, counter2])
 
