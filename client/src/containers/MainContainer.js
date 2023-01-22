@@ -7,7 +7,6 @@ import { useState, useEffect } from "react";
 
 import GameForm from "../components/GameForm";
 import GameHistory from "../components/GameHistory";
-import PlayerForm from "../components/PlayerForm";
 import MainMenu from "../components/MainMenu";
 import PlayerContainer from "./PlayerContainer";
 
