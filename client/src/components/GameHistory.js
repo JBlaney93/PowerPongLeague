@@ -4,8 +4,6 @@ import React from "react";
 
 const GameHistory = ({ gameHistory }) => {
     
-    console.log(gameHistory);
-    
     const gameList = gameHistory.map((game, index) => {
         return <GameHistoryItem
                     game={game}

@@ -1,11 +1,12 @@
-import PlayerForm from "../components/PlayerForm";
+import PlayerForm from "../components/PlayerForm"
+import PlayerList from "../components/PlayerList";
 
-const PlayerContainer = (players, addToPlayers) => {
+const PlayerContainer = ({players, addToPlayers}) => {
 
     return(
         <>
+            <PlayerList players = {players}/>
             <PlayerForm addToPlayers={addToPlayers}/>
-            {/* <PlayerList players ={players}/> */}
         </>
     )
 }
