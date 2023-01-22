@@ -14,7 +14,7 @@ Our group project is an app designed for mobile that will allow you to track pin
 
 - Game score tracker with two buttons to increment Player One and Player Two scores
 
-– Start menu with options: "Start Game", "Game History", "Players"
+– Start menu with options: "Start Game", "Game History", and "Players"
 
 – Function to track which player's serve it is
 
@@ -24,17 +24,17 @@ Our group project is an app designed for mobile that will allow you to track pin
 
 – Feature to display list of available players, which also allows user to add and remove players
 
-– Back-end database that stores players and games played, that the front end can display and update.
+– Back-end database that stores players and games played that the front end can display and update.
 
 # Extensions
 
-– The app should be able to display a leaderboard or a league table with individual player ranks
+– The app should be able to display a leaderboard or league table with individual player ranks
 
 – It could also show you the head-to-head record for two players
 
 – Statistics for individual players (win percentage, games played, etc.)
 
-– Interactive styling with potential for animation, sound, responsive feedback.
+– Interactive styling with potential for animation, sound, and responsive feedback
 
-– Layout that scales between mobile and desktop smoothly.
+– Layout that scales between mobile and desktop smoothly
 
