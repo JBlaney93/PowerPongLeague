@@ -56,7 +56,7 @@ const MainContainer = () => {
                     <Routes>
                         <Route path="/" element={ <MainMenu />} />
                         <Route path="/game-form" 
-                            element={ <GameForm addToGameHistory={addToGameHistory} />} />
+                            element={ <GameForm addToGameHistory={addToGameHistory} players={players} />} />
                         <Route path="/player-form" 
                             element={ <PlayerContainer players = {players} addToPlayers = {addToPlayers}/>} />
                         <Route path="/game-history" 

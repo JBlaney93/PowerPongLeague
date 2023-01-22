@@ -1,21 +1,31 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from 'react';
+import PlayerItem from "./PlayerItem";
 
-const GameForm = ({ addToGameHistory }) => {
-    
+const GameForm = ({ addToGameHistory, players }) => {
+
     const [counter1, setCounter1] = useState(0)
     const [counter2, setCounter2] = useState(0)
-
+    
     const [serveTracker, setServeTracker] = useState(0)
     const serve = serveTracker % 4 < 2 ? 'serve' : 'noserve'  
-
+    
     const [winner, setWinner] = useState("")
     const [loser, setLoser] = useState("")
     const [w_score, setW_score] = useState("")
     const [l_score, setL_score] = useState("")
-
+    
     const [gameWon, setGameWon] = useState(false);
     
+    const playersList = players.map((player, index) => {
+        return <PlayerItem player={player} key={index}/>
+       
+    })
+
+    const [player1, setPlayer1] = useState("")
+    const [player2, setPlayer2] = useState("")
+    
+
     const increase1 = (event) => {
         setCounter1(counter1 + 1)
     }
@@ -29,14 +39,14 @@ const GameForm = ({ addToGameHistory }) => {
         setServeTracker(counter1 + counter2);
 
         if (counter1 >= 11 && counter1 -2 >= counter2) {
-            setWinner("Player 1")
-            setLoser("Player 2")
+            setWinner(player1)
+            setLoser(player2)
             setW_score(counter1)
             setL_score(counter2)
             setGameWon(true);
         } else if (counter2 >= 11 && counter2 -2 >= counter1) {
-            setWinner("Player 2")
-            setLoser("Player 1")
+            setWinner(player2)
+            setLoser(player1)
             setW_score(counter2)
             setL_score(counter1)
             setGameWon(true);
@@ -57,12 +67,27 @@ const GameForm = ({ addToGameHistory }) => {
         addToGameHistory(newGame);
     }
     
+    const handleChange1 = (event) => {
+        setPlayer1(event.target.value)
+        console.log("player1", player1);
+    }
+
+    const handleChange2 = (event) => {
+        setPlayer2(event.target.value)
+        console.log("player2", player2);
+    }
+
+
     return(
         <div>
             {!gameWon ? (
             <div>
-                <button onClick={increase1} className={serve}>{counter1}</button>
-                <button onClick={increase2} className={serve === 'noserve' ? 'serve' : 'noserve'}>{counter2}</button>
+                <button 
+                    onClick={increase1} 
+                    className={serve}>{counter1}</button>
+                <button 
+                    onClick={increase2} 
+                    className={serve === 'noserve' ? 'serve' : 'noserve'}>{counter2}</button>
             </div>
                 ) : 
                 (
@@ -73,13 +98,36 @@ const GameForm = ({ addToGameHistory }) => {
             </div>
                 )
             }  
+
+            <div>
+                <select name="player1" onChange={handleChange1}>
+                    {playersList.map((player, index) => (
+                        <option 
+                        key={index} 
+                        value={player.name}
+                        >
+                            {player}
+                        </option>
+                    ))}
+                </select>
+
+                <select name="player2" onChange={handleChange2}>
+                    {playersList.map((player, index) => (
+                        <option 
+                        key={index} 
+                        value={player.name}
+                        >
+                            {player}
+                        </option>
+                    ))}
+                </select>
+            </div>
+            
             <Link to="/">
-                Home
-            </Link>
+                Home</Link>
            <p></p>
             <Link to="/game-history">
-                GAME HISTORY
-            </Link>
+                GAME HISTORY</Link>
         </div>
 
     )
