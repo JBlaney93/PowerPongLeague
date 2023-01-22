@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import React,{useState} from 'react'
 
-const PlayerForm = ({players, addToPlayers}) => {
+const PlayerForm = ({addToPlayers}) => {
     const [name, setName] = useState("");
     const handleChange = (event) => {
         setName(event.target.value)
