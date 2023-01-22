@@ -9,6 +9,7 @@ import GameForm from "../components/GameForm";
 import GameHistory from "../components/GameHistory";
 import PlayerForm from "../components/PlayerForm";
 import MainMenu from "../components/MainMenu";
+import PlayerContainer from "./PlayerContainer";
 
 // services
 
@@ -58,7 +59,7 @@ const MainContainer = () => {
                         <Route path="/game-form" 
                             element={ <GameForm addToGameHistory={addToGameHistory} />} />
                         <Route path="/player-form" 
-                            element={ <PlayerForm players = {players} addToPlayers = {addToPlayers}/>} />
+                            element={ <PlayerContainer players = {players} addToPlayers = {addToPlayers}/>} />
                         <Route path="/game-history" 
                             element={ <GameHistory gameHistory={gameHistory}/>} />
                     </Routes>
