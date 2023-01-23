@@ -44,13 +44,16 @@ const PlayerForm = ({addToPlayers}) => {
                 <h2>New Player Profile</h2>
                 <br />
                 {error && <p style={{ color: 'red' }}>{error}</p>}
-                <form onSubmit={handleSubmit}>
-                    <label>Name: </label>
-                    <input
-                        value={name}
-                        onChange={handleChange}
-                        name="name"
-                    />
+                <form 
+                    onSubmit={handleSubmit} 
+                    data-testid="save-player-button">
+                        <label>Name: </label>
+                        <input
+                            value={name}
+                            onChange={handleChange}
+                            name="name"
+                            data-testid="input-field"
+                        />
                     <br />
                     <br />
                     <p>Choose an avatar: </p>
