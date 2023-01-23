@@ -3,6 +3,17 @@ import PlayerService from "../services/PlayerService";
 
 const GameItem = ({ game, index }) => {
 
+    const dateTime = new Date (game.datetime)
+    console.log("dateTime:", dateTime)
+
+    const dateTimeFormat = dateTime.toDateString()
+    console.log(dateTimeFormat)
+
+    const day = dateTime.getDay()
+    const month = dateTime.getMonth() + 1
+    const year = dateTime.getFullYear()
+    
+
     const [winner, setWinner] = useState("");
     const [loser, setLoser] = useState("");
 
@@ -20,6 +31,8 @@ const GameItem = ({ game, index }) => {
         <div>
             <p>WINNER: {winner.name} - Score: {game.w_score}</p>
             <p>LOSER: {loser.name} - Score {game.l_score}</p>
+            <p>{dateTimeFormat}</p>
+            <p>{day} / {month} / {year}</p>
         </div>
     )
 }

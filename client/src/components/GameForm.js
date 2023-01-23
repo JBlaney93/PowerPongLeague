@@ -33,6 +33,7 @@ const GameForm = ({ addToGameHistory, players }) => {
 
         if (counterObj.c1 >= 11 && counterObj.c1 -2 >= counterObj.c2) {
             const endGame = {
+                datetime: new Date(),
                 winner: player1,
                 loser: player2,
                 w_score: counterObj.c1,
@@ -43,6 +44,7 @@ const GameForm = ({ addToGameHistory, players }) => {
             
         } else if (counterObj.c2 >= 11 && counterObj.c2 -2 >= counterObj.c1) {
             const endGame = {
+                datetime: new Date(),
                 winner: player1,
                 loser: player2,
                 w_score: counterObj.c1,
@@ -95,6 +97,7 @@ const GameForm = ({ addToGameHistory, players }) => {
                     </button>
                     <button 
                         onClick={()=>{increment('c2')}} 
+                        data-testid="counter-button"
                         className={serve === 'noserve' ? 'serve' : 'noserve'}>{counterObj.c2}
                     </button>
                 </div>
