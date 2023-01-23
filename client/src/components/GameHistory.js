@@ -4,7 +4,7 @@ import React from "react";
 
 const GameHistory = ({ gameHistory }) => {
     
-    const gameList = gameHistory.map((game, index) => {
+    const gameList = gameHistory.slice(0).reverse().map((game, index) => {
         return <GameHistoryItem
                     game={game}
                     key={index}
