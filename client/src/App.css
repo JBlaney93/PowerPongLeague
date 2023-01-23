@@ -102,12 +102,39 @@ li {
   0 0 20px rgb(167, 111, 240),
   0 0 71px rgb(167, 111, 240);
   transition: 0.07s;
+  animation: flicker 0.11s infinite alternate;   
+}
+
+@keyframes flicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+    text-shadow: 
+      0 0 9px white,
+      0 0 14px white,
+      0 0 16px white,
+      0 0 20px rgb(167, 111, 240),
+      0 0 32px rgb(167, 111, 240),
+      0 0 32px rgb(167, 111, 240),
+      0 0 42px rgb(167, 111, 240),
+      0 0 101px rgb(167, 111, 240);
+  }  
+    20%, 24%, 55% {        
+    text-shadow:  
+      0 0 5px rgb(208, 208, 208),
+      0 0 7px rgb(208, 208, 208),
+      0 0 9px rgb(208, 208, 208),
+      0 0 8px rgb(167, 111, 240),
+      0 0 20px rgb(167, 111, 240),
+      0 0 20px rgb(167, 111, 240),
+      0 0 20px rgb(167, 111, 240),
+      0 0 71px rgb(167, 111, 240);
+  }  
 }
 
 .main-menu-item-link:hover {
   color: white;
+  font-weight: 300;
   text-shadow: 
-  0 0 7px rgb(222, 222, 222),
+  0 0 7px rgba(222, 222, 222, 0.665),
   0 0 15px rgb(222, 222, 222),
   0 0 16px rgb(222, 222, 222),
   0 0 12px rgb(167, 111, 240),
@@ -161,7 +188,8 @@ select {
 }
 
 .confirm-button {
-  font-size: 40px;
+  font-weight: 200;
+  font-size: 50px;
   border-style: none;
   background-color: transparent;
   text-decoration: none;
@@ -179,7 +207,8 @@ select {
 }
 
 .inactive-confirm-button {
-  font-size: 40px;
+  font-weight: 200;
+  font-size: 50px;
   border-style: none;
   background-color: transparent;
   text-decoration: none;
@@ -197,7 +226,8 @@ select {
 }
 
 .confirm-button:hover {
-  font-size: 40px;
+  font-weight: 300;
+  font-size: 50px;
   border-style: none;
   background-color: transparent;
   text-decoration: none;
@@ -236,12 +266,118 @@ select {
 .back-to-menu:hover {
   margin-top: 5%;
   position: relative;
-   z-index: 9999;
-   margin-bottom: -30%;
-   text-decoration: none;
-   color: white;  
-   text-shadow: 
-   0 0 7px rgb(222, 222, 222),
+  z-index: 9999;
+  margin-bottom: -30%;
+  text-decoration: none;
+  color: white;  
+  text-shadow: 
+  0 0 7px rgb(222, 222, 222),
+  0 0 15px rgb(222, 222, 222),
+  0 0 16px rgb(222, 222, 222),
+  0 0 12px rgb(167, 111, 240),
+  0 0 32px rgb(167, 111, 240),
+  0 0 32px rgb(167, 111, 240),
+  0 0 42px rgb(167, 111, 240),
+  0 0 101px rgb(167, 111, 240);
+   transition: 0.07s;
+}
+
+.new-player-profile {
+  font-family: 'Genos', sans-serif;
+  font-size: 50px;
+  font-weight: 200;
+  color: rgb(222, 222, 222);  
+  text-shadow: 
+  0 0 3px rgba(222, 222, 222, 0.619),
+  0 0 5px rgb(222, 222, 222, 0.619),
+  0 0 6px rgb(222, 222, 222, 0.619),
+  0 0 7px rgba(167, 111, 240, 0.663),
+  0 0 10px rgb(167, 111, 240, 0.663),
+  0 0 10px rgb(167, 111, 240, 0.663),
+  0 0 10px rgb(167, 111, 240, 0.663),
+  0 0 61px rgb(167, 111, 240, 0.663);
+  transition: 0.07s;
+}
+
+.new-player-profile-form {
+  display: inline-block;
+  box-shadow: 
+  0 0 3px rgba(222, 222, 222, 0.619),
+  0 0 5px rgb(222, 222, 222, 0.619),
+  0 0 6px rgb(222, 222, 222, 0.619),
+  0 0 7px rgba(167, 111, 240, 0.663),
+  0 0 10px rgb(167, 111, 240, 0.663),
+  0 0 10px rgb(167, 111, 240, 0.663),
+  0 0 10px rgb(167, 111, 240, 0.663),
+  0 0 61px rgb(167, 111, 240, 0.663);
+  background-color: rgba(13, 8, 46, 0.619);
+  margin-left: 20px;
+  margin-right: 20px;
+  border-style: hidden;
+  border-radius: 20px;
+  height: 15%;
+  width: 45%;
+  position: relative;
+}
+
+.new-player-name {
+  font-size: 20px;
+  font-weight: 500;
+  color: white;
+  margin-top: 5%;
+  margin-right: 1%;
+}
+
+.new-player-name-field {
+  background-color: white;
+  border-style: hidden;
+  border-radius: 15px;
+  margin-top: 5%;
+  box-shadow: 
+  0 0 2px rgba(222, 222, 222, 0.619),
+  0 0 3px rgb(222, 222, 222, 0.619),
+  0 0 4px rgb(222, 222, 222, 0.619),
+  0 0 5px rgb(222, 222, 222, 0.619),
+  0 0 5px rgb(222, 222, 222, 0.619),
+  0 0 5px rgb(222, 222, 222, 0.619),
+  0 0 5px rgb(167, 111, 240, 0.663),
+  0 0 20px rgb(167, 111, 240, 0.663);
+}
+
+.choose-avatar {
+  color: white;
+}
+
+.create-player-profile {
+  font-size: 40px;
+  font-weight: 300;
+  padding-bottom: 5%;
+  border-style: none;
+  background-color: transparent;
+  text-decoration: none;
+  color: rgb(222, 222, 222);  
+  text-shadow: 
+  0 0 5px rgb(222, 222, 222),
+  0 0 7px rgb(222, 222, 222),
+  0 0 9px rgb(222, 222, 222),
+  0 0 8px rgb(167, 111, 240),
+  0 0 20px rgb(167, 111, 240),
+  0 0 20px rgb(167, 111, 240),
+  0 0 20px rgb(167, 111, 240),
+  0 0 71px rgb(167, 111, 240);
+  transition: 0.07s;
+}
+
+.create-player-profile:hover {
+  font-size: 40px;
+  font-weight: 300;
+  padding-bottom: 5%;
+  border-style: none;
+  background-color: transparent;
+  text-decoration: none;
+  color: white;  
+  text-shadow: 
+  0 0 7px rgb(222, 222, 222),
   0 0 15px rgb(222, 222, 222),
   0 0 16px rgb(222, 222, 222),
   0 0 12px rgb(167, 111, 240),
@@ -266,6 +402,3 @@ select {
   padding-top: 5px;
   padding-bottom: 5px;
 }
-
-
-
