@@ -161,7 +161,6 @@ select {
 }
 
 .confirm-button {
-  margin-bottom: 10%;
   font-size: 40px;
   border-style: none;
   background-color: transparent;
@@ -171,6 +170,24 @@ select {
   0 0 5px rgb(222, 222, 222),
   0 0 7px rgb(222, 222, 222),
   0 0 9px rgb(222, 222, 222),
+  0 0 8px rgb(167, 111, 240),
+  0 0 20px rgb(167, 111, 240),
+  0 0 20px rgb(167, 111, 240),
+  0 0 20px rgb(167, 111, 240),
+  0 0 71px rgb(167, 111, 240);
+  transition: 0.07s;
+}
+
+.inactive-confirm-button {
+  font-size: 40px;
+  border-style: none;
+  background-color: transparent;
+  text-decoration: none;
+  color: rgb(154, 154, 154);  
+  text-shadow: 
+  0 0 5px rgb(154, 154, 154),
+  0 0 7px rgb(154, 154, 154),
+  0 0 9px rgb(154, 154, 154),
   0 0 8px rgb(167, 111, 240),
   0 0 20px rgb(167, 111, 240),
   0 0 20px rgb(167, 111, 240),
@@ -198,7 +215,41 @@ select {
 }
 
 .back-to-menu {
-  margin-bottom: -10%;
+ margin-top: 5%;
+ position: relative;
+  z-index: 9999;
+  margin-bottom: -30%;
+  text-decoration: none;
+  color: rgb(222, 222, 222);  
+  text-shadow: 
+  0 0 5px rgb(222, 222, 222),
+  0 0 7px rgb(222, 222, 222),
+  0 0 9px rgb(222, 222, 222),
+  0 0 8px rgb(167, 111, 240),
+  0 0 20px rgb(167, 111, 240),
+  0 0 20px rgb(167, 111, 240),
+  0 0 20px rgb(167, 111, 240),
+  0 0 71px rgb(167, 111, 240);
+  transition: 0.07s;
+}
+
+.back-to-menu:hover {
+  margin-top: 5%;
+  position: relative;
+   z-index: 9999;
+   margin-bottom: -30%;
+   text-decoration: none;
+   color: white;  
+   text-shadow: 
+   0 0 7px rgb(222, 222, 222),
+  0 0 15px rgb(222, 222, 222),
+  0 0 16px rgb(222, 222, 222),
+  0 0 12px rgb(167, 111, 240),
+  0 0 32px rgb(167, 111, 240),
+  0 0 32px rgb(167, 111, 240),
+  0 0 42px rgb(167, 111, 240),
+  0 0 101px rgb(167, 111, 240);
+   transition: 0.07s;
 }
 
 .serve {
