@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import PlayerSelect from "./PlayerSelect";
+import PlayerService from "../services/PlayerService";
 
 const GameForm = ({ addToGameHistory, players }) => {
 
@@ -16,10 +17,23 @@ const GameForm = ({ addToGameHistory, players }) => {
         gameWon: false
     });
 
-    const [player1, setPlayer1] = useState("");
-    const [player2, setPlayer2] = useState("");
+    const [gamePlayers, setGamePlayers] = useState({
+        player1: "",
+        player2: "",
+        winner: ""
+    })
+
     const [playersSelected, setPlayersSelected] = useState(false);
     const [playersConfirmed, setPlayersConfirmed] = useState(false);
+
+    const handlePlayerSelect = (event) => {
+        const player = event.target.name
+        const temp = {...gamePlayers}
+        
+        PlayerService.findPlayer(event.target.value)
+        .then(obj => temp[player] = obj)
+        .then(setGamePlayers(temp))
+    }
 
     const increment = (counter) => {
         const temp = {...counterObj};
@@ -34,33 +48,44 @@ const GameForm = ({ addToGameHistory, players }) => {
         if (counterObj.c1 >= 11 && counterObj.c1 -2 >= counterObj.c2) {
             const endGame = {
                 datetime: new Date(),
-                winner: player1,
-                loser: player2,
+                winner: gamePlayers.player1._id,
+                loser: gamePlayers.player2._id,
                 w_score: counterObj.c1,
                 l_score: counterObj.c2,
                 gameWon: true
             };
+            const temp = {...gamePlayers};
+            temp.winner = "player 1";
+            setGamePlayers(temp);
             setGameState(endGame);
+
+            console.log(gameState)
             
         } else if (counterObj.c2 >= 11 && counterObj.c2 -2 >= counterObj.c1) {
             const endGame = {
                 datetime: new Date(),
-                winner: player1,
-                loser: player2,
+                winner: gamePlayers.player2._id,
+                loser: gamePlayers.player1._id,
                 w_score: counterObj.c1,
                 l_score: counterObj.c2,
                 gameWon: true
             };
+            const temp = {...gamePlayers};
+            temp.winner = "player 2";
+            setGamePlayers(temp);
             setGameState(endGame);
+
+
         } 
         //  eslint-disable-next-line
-    }, [counterObj])
+
+    }, [counterObj, gamePlayers, gameState])
 
     useEffect(()=>{
-        if (player1 !== "" && player2 !== "") {
+        if (gamePlayers.player1 || gamePlayers.player2) {
             setPlayersSelected(true)
         }
-    }, [player1, player2])
+    }, [gamePlayers])
 
     const handleWin = () => {
         addToGameHistory(gameState);
@@ -103,9 +128,19 @@ const GameForm = ({ addToGameHistory, players }) => {
                 </div>
                 ) : 
                 (
+                    
                 <div>
-                    <p>winner: {gameState.winner} loser: {gameState.loser}</p>
-                    <p>scores: {gameState.w_score} - {gameState.l_score}</p>
+                    <p>winner: {
+                    gamePlayers.winner === "player 1"? gamePlayers.player1.name:gamePlayers.player2.name
+                    } 
+                    loser: {
+                    gamePlayers.winner === "player 1"? gamePlayers.player2.name:gamePlayers.player1.name
+                    }</p>
+                    <p>scores: {
+                    gamePlayers.winner === "player 1"?gameState.w_score:gameState.l_score
+                    } - {
+                    gamePlayers.winner === "player 1"?gameState.l_score:gameState.w_score
+                    }</p>
                     <button onClick={handleWin}>save game</button>
                 </div>
                 )
