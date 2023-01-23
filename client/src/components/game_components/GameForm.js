@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import PlayerSelect from "./PlayerSelect";
-import PlayerService from "../services/PlayerService";
+import PlayerService from "../../services/PlayerService";
 
 const GameForm = ({ addToGameHistory, players }) => {
 

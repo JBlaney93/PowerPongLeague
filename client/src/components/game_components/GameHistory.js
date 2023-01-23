@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-import GameHistoryItem from "./GameItem";
+import GameItem from "../game_components/GameItem"
 import React from "react";
 
 const GameHistory = ({ gameHistory }) => {
     
     const gameList = gameHistory.slice(0).reverse().map((game, index) => {
-        return <GameHistoryItem
+        return <GameItem
                     game={game}
                     key={index}
                 />
