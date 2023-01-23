@@ -7,8 +7,8 @@ import { useState, useEffect } from "react";
 
 import GameForm from "../components/GameForm";
 import GameHistory from "../components/GameHistory";
-import PlayerForm from "../components/PlayerForm";
 import MainMenu from "../components/MainMenu";
+import PlayerContainer from "./PlayerContainer";
 
 // services
 
@@ -33,12 +33,13 @@ const MainContainer = () => {
     },[])
 
     const addToGameHistory = (game) => {
-        const duplicate = [...gameHistory];
 
+        const duplicate = [...gameHistory];
         GameService.addGame(game)
         .then(res => GameService.findGame(res.insertedId))
         .then(res => duplicate.push(res))
-        .then(setGameHistory(duplicate))       
+        .then(setGameHistory(duplicate))
+               
     }
 
     const addToPlayers = (player) => {
@@ -47,7 +48,8 @@ const MainContainer = () => {
         PlayerService.addPlayer(player)
         .then(res => PlayerService.findPlayer(res.insertedId))
         .then(res => duplicate.push(res))
-        .then(setGameHistory(duplicate));
+        .then(setPlayers(duplicate));
+
     }
 
     return(
@@ -56,9 +58,9 @@ const MainContainer = () => {
                     <Routes>
                         <Route path="/" element={ <MainMenu />} />
                         <Route path="/game-form" 
-                            element={ <GameForm addToGameHistory={addToGameHistory} />} />
+                            element={ <GameForm addToGameHistory={addToGameHistory} players={players} />} />
                         <Route path="/player-form" 
-                            element={ <PlayerForm players = {players} addToPlayers = {addToPlayers}/>} />
+                            element={ <PlayerContainer players = {players} addToPlayers={addToPlayers}/>} />
                         <Route path="/game-history" 
                             element={ <GameHistory gameHistory={gameHistory}/>} />
                     </Routes>

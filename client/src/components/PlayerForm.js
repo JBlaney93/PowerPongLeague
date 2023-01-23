@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import React,{useState} from 'react'
 
-const PlayerForm = ({players, addToPlayers}) => {
+const PlayerForm = ({addToPlayers}) => {
+
+    console.log(addToPlayers)
     const [name, setName] = useState("");
     const handleChange = (event) => {
         setName(event.target.value)
@@ -12,16 +14,20 @@ const PlayerForm = ({players, addToPlayers}) => {
 
     
     const handleSubmit = (event) => {
+
         event.preventDefault();
+
         if (!name) {
             setError("Name cannot be empty!");
             return;
+        }
+        
+        const newPlayer = {name:name}
+        addToPlayers(newPlayer)
+        setProfileCreated(true);
+
+        setName("")
     }
-    const newPlayer = {name:name}
-    addToPlayers(newPlayer);
-    setProfileCreated(true);
-    setName("");
-};
 
     return(
         <div>
