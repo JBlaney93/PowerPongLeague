@@ -75,17 +75,67 @@ select {
 }
 
 
-
-.container {
+.main-menu-container {
+  font-family: 'Genos', sans-serif;
+  text-decoration: none;
+  color: rgb(222, 222, 222);
   text-align: center;
-  /* max-width: 60%;
-  margin: 0 auto; */
 }
-
 
 li {
   list-style: none;
-  font-size: 40px;
+  font-size: 55px;
+  font-weight: 250;
+}
+
+.main-menu-item-link {
+  text-decoration: none;
+  color: white;  
+  text-shadow: 
+  0 0 5px rgb(222, 222, 222),
+  0 0 7px rgb(222, 222, 222),
+  0 0 9px rgb(222, 222, 222),
+  0 0 8px rgb(167, 111, 240),
+  0 0 20px rgb(167, 111, 240),
+  0 0 20px rgb(167, 111, 240),
+  0 0 20px rgb(167, 111, 240),
+  0 0 71px rgb(167, 111, 240);
+  transition: 0.10s;
+}
+
+.main-menu-item-link:hover {
+  color: white;
+  text-shadow: 
+  0 0 7px rgb(222, 222, 222),
+  0 0 15px rgb(222, 222, 222),
+  0 0 16px rgb(222, 222, 222),
+  0 0 12px rgb(167, 111, 240),
+  0 0 32px rgb(167, 111, 240),
+  0 0 32px rgb(167, 111, 240),
+  0 0 42px rgb(167, 111, 240),
+  0 0 101px rgb(167, 111, 240);
+}
+
+.powerpong-logo {
+  display: flex;
+  margin-top: 7%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: -4%;
+  width: 50%;
+  height: 50%;
+  position: center;
+  size-adjust: 70em;
+}
+
+.league-logo {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 6%;
+  width: 20%;
+  height: 20%;
+  position: center;
 }
 
 .serve {
@@ -95,3 +145,6 @@ li {
 .noserve {
   /* color: red; */
 }
+
+
+

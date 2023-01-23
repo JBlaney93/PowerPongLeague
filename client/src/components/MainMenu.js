@@ -4,18 +4,24 @@ const MainMenu = () => {
     return(
         <div className="main-menu-container">
             <ul>
-                <li className="main-menu-item">
-                    <Link to="/game-form">
+                <li>
+                    <Link 
+                        className="main-menu-item-link"
+                        to="/game-form">
                         START GAME
                     </Link>
                 </li>
-                <li className="main-menu-item">
-                    <Link to="/player-form">
+                <li>
+                    <Link
+                        className="main-menu-item-link"
+                        to="/player-form">
                         CREATE NEW PLAYER
                     </Link>
                 </li>
-                <li className="main-menu-item">
-                    <Link to="/game-history">
+                <li>
+                    <Link 
+                        className="main-menu-item-link"
+                        to="/game-history">
                         GAME HISTORY
                     </Link>
                 </li>
