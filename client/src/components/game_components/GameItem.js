@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import PlayerService from "../services/PlayerService";
+import PlayerService from "../../services/PlayerService";
 
 const GameItem = ({ game, index }) => {
 
