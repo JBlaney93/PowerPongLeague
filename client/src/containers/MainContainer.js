@@ -53,7 +53,7 @@ const MainContainer = () => {
     }
 
     return(
-        <div className="container">
+        <div className="main-menu-container">
             <Router>
                     <Routes>
                         <Route path="/" element={ <MainMenu />} />
