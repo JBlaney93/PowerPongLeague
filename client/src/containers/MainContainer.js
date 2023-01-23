@@ -5,8 +5,8 @@ import { useState, useEffect } from "react";
 
 // components
 
-import GameForm from "../components/GameForm";
-import GameHistory from "../components/GameHistory";
+import GameForm from "../components/game_components/GameForm";
+import GameHistory from "../components/game_components/GameHistory";
 import MainMenu from "../components/MainMenu";
 import PlayerContainer from "./PlayerContainer";
 
