@@ -5,8 +5,8 @@ const PlayerContainer = ({players, addToPlayers}) => {
 
     return(
         <>
-            <PlayerList players = {players}/>
             <PlayerForm addToPlayers={addToPlayers}/>
+            <PlayerList players = {players}/>
         </>
     )
 }
