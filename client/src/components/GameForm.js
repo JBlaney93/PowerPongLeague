@@ -102,7 +102,7 @@ const GameForm = ({ addToGameHistory, players }) => {
         return(
             <>
             <p className="select-to-proceed">Select two players to proceed:</p>
-            <PlayerSelect players = {players} setPlayer1 = {setPlayer1} setPlayer2 = {setPlayer2}/>
+            <PlayerSelect players = {players} handlePlayerSelect={handlePlayerSelect}/>
             <br />
             <br />
             <br />
