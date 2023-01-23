@@ -41,14 +41,15 @@ const PlayerForm = ({addToPlayers}) => {
             </div>
         ) : (
             <div>
-                <h2>New Player Profile</h2>
+                <h2 className="new-player-profile">NEW PLAYER PROFILE</h2>
                 <br />
                 {error && <p style={{ color: 'red' }}>{error}</p>}
-                <form 
+                <form className="new-player-profile-form"
                     onSubmit={handleSubmit} 
                     data-testid="save-player-button">
-                        <label>Name: </label>
+                        <label className="new-player-name">NAME: </label>
                         <input
+                            className="new-player-name-field"
                             value={name}
                             onChange={handleChange}
                             name="name"
@@ -56,16 +57,16 @@ const PlayerForm = ({addToPlayers}) => {
                         />
                     <br />
                     <br />
-                    <p>Choose an avatar: </p>
+                    <label className="choose-avatar">Choose an avatar: </label>
                     <br />
                     <br />
                     <p>SELECTION OF AVATAR IMAGES HERE</p>
                     <br />
                     <br />
-                    <button>Create Player Profile</button>
+                    <button className="create-player-profile">CREATE</button>
+                    <br />
+                    <Link to="/">Back to menu</Link>
                 </form>
-                <br />
-                <Link to="/">Back to menu</Link>
             </div>
         )}
     </div>
