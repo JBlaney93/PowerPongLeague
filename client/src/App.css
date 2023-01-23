@@ -253,26 +253,19 @@ select {
 }
 
 .back-to-menu {
-  font-size: 20px;
+ font-size: 20px;
  margin-top: 5%;
- position: relative;
+ margin-bottom: 10%;
+ position: static;
  margin-bottom: -30%;
  text-decoration: none;
  color: rgb(222, 222, 222);  
- /* text-shadow: 
-  0 0 5px rgb(222, 222, 222),
-  0 0 7px rgb(222, 222, 222),
-  0 0 9px rgb(222, 222, 222),
-  0 0 8px rgb(167, 111, 240),
-  0 0 20px rgb(167, 111, 240),
-  0 0 20px rgb(167, 111, 240),
-  0 0 20px rgb(167, 111, 240),
-  0 0 71px rgb(167, 111, 240); */
-  transition: 0.07s;
+ transition: 0.07s;
 }
 
 .back-to-menu:hover {
   margin-top: 5%;
+  margin-bottom: 5%;
   position: relative;
   z-index: 9999;
   margin-bottom: -30%;
@@ -397,7 +390,7 @@ select {
 .create-player-profile {
   font-size: 40px;
   font-weight: 300;
-  padding-bottom: 5%;
+  padding-bottom: 2%;
   border-style: none;
   background-color: transparent;
   text-decoration: none;
@@ -417,7 +410,7 @@ select {
 .create-player-profile:hover {
   font-size: 40px;
   font-weight: 300;
-  padding-bottom: 5%;
+  padding-bottom: 2%;
   border-style: none;
   background-color: transparent;
   text-decoration: none;
