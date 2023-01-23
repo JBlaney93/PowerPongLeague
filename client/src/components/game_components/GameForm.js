@@ -13,7 +13,6 @@ const GameForm = ({ addToGameHistory, players }) => {
     const [playersConfirmed, setPlayersConfirmed] = useState(false);
     const [gameWon, setGameWon] = useState(false);
 
-    
     const [endGame, setEndGame] = useState({})
     const [gamePlayers, setGamePlayers] = useState({
         player1: "",
@@ -29,14 +28,8 @@ const GameForm = ({ addToGameHistory, players }) => {
         .then(setGamePlayers(temp))
     }
 
-    useEffect(()=>{
-        if (gamePlayers.player1 && gamePlayers.player2) {
-            setPlayersSelected(true)
-        }
-    }, [gamePlayers])
-
     const handleWin = (player, w_score, l_score) => {
-        if (player === "player 1") {
+        if (player === "player1") {
             const endGame = {
                 datetime: new Date(),
                 winner: gamePlayers.player1._id,
@@ -46,7 +39,7 @@ const GameForm = ({ addToGameHistory, players }) => {
             }
             setEndGame(endGame);
             setGameWon(true);
-        } else if (player === 'player 2') {
+        } else if (player === 'player2') {
             const endGame = {
                 datetime: new Date(),
                 winner: gamePlayers.player2._id,
@@ -59,7 +52,16 @@ const GameForm = ({ addToGameHistory, players }) => {
         }
     }
 
+    useEffect(()=>{
+        if (gamePlayers.player1 !== "" && gamePlayers.player2 !== "") {
+            setPlayersSelected(true)
+        }
+    })
+    
     const handleSaveGame = () => {
+        if (!gameWon) {
+            return;
+        }
         addToGameHistory(endGame);
     }
     
@@ -72,20 +74,30 @@ const GameForm = ({ addToGameHistory, players }) => {
 
     return(
         <div>
-            
+            {!playersConfirmed?
             <div className="player-select">
                 <p className="select-to-proceed">Select two players to proceed:</p>
                 <PlayerSelect players={players} handlePlayerSelect={handlePlayerSelect} gamePlayers={gamePlayers}/>
+                <button onClick={handleConfirm}>confirm selection</button>
             </div>
+            :null}
+
+            {playersConfirmed && !gameWon?
             <div className="counters">
-                <Counters handleWin={handleWin}/>
+                <p>Log your score here!</p>
+                <Counters handleWin={handleWin} player1={gamePlayers.player1.name} player2={gamePlayers.player2.name}/>
             </div>
-            <div className="win-screens">
+            :null}
+
+            {gameWon?
                 <WinScreen handleSaveGame={handleSaveGame}/>
-            </div>
+            :null}
+
             <Link to="/">back to menu</Link>
             <Link to="/game-history">recent games</Link>
+            {gameWon?
             <Link to="/game-form">play again</Link>
+            :null}
         </div>
     )
 }

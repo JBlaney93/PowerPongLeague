@@ -1,7 +1,8 @@
-const WinScreen = ({handleWin}) => {
+const WinScreen = ({handleSaveGame}) => {
     return (
         <div>
-            <button onClick={handleWin}>save game</button>
+            <p>game over! save your game or return home</p>
+            <button onClick={()=>{handleSaveGame()}}>save game</button>
         </div>
     )
 }

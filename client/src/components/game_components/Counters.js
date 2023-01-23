@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const Counters = ({handleWin}) => {
+const Counters = ({handleWin, player1, player2}) => {
 
     const [counterObj, setCounterObj] = useState({
         c1: 0,
@@ -32,12 +32,12 @@ const Counters = ({handleWin}) => {
 
     return (
         <div>
-            <p>player1</p>
+            <p>{player1}</p>
             <button
                 onClick={() => { increment('c1') }}
                 className={serve}>{counterObj.c1}
             </button>
-            <p>player 2</p>
+            <p>{player2}</p>
             <button
                 onClick={() => { increment('c2') }}
                 data-testid="counter-button"
