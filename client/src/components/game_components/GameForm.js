@@ -15,8 +15,8 @@ const GameForm = ({ addToGameHistory, players }) => {
 
     const [endGame, setEndGame] = useState({})
     const [gamePlayers, setGamePlayers] = useState({
-        player1: "",
-        player2: "",
+        player1: false,
+        player2: false,
     })
 
     const handlePlayerSelect = (event) => {
@@ -53,10 +53,10 @@ const GameForm = ({ addToGameHistory, players }) => {
     }
 
     useEffect(()=>{
-        if (gamePlayers.player1 !== "" && gamePlayers.player2 !== "") {
+        if (gamePlayers.player1 && gamePlayers.player2) {
             setPlayersSelected(true)
         }
-    })
+    }, [gamePlayers])
     
     const handleSaveGame = () => {
         if (!gameWon) {
