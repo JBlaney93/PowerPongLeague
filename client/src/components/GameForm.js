@@ -7,17 +7,14 @@ const GameForm = ({ addToGameHistory, players }) => {
     const [counterObj, setCounterObj] = useState({
         c1: 0,
         c2: 0
-    })
+    });
     
-    const [serveTracker, setServeTracker] = useState(0)
+    const [serveTracker, setServeTracker] = useState(0);
     const serve = (serveTracker-1) % 4 < 2 ? 'serve' : 'noserve';
-    
-    const [winner, setWinner] = useState("");
-    const [loser, setLoser] = useState("");
-    const [w_score, setW_score] = useState("");
-    const [l_score, setL_score] = useState("");
-    
-    const [gameWon, setGameWon] = useState(false);
+
+    const [gameState, setGameState] = useState({
+        gameWon: false
+    });
 
     const [player1, setPlayer1] = useState("");
     const [player2, setPlayer2] = useState("");
@@ -35,17 +32,24 @@ const GameForm = ({ addToGameHistory, players }) => {
         setServeTracker(counterObj.c1 + counterObj.c2);
 
         if (counterObj.c1 >= 11 && counterObj.c1 -2 >= counterObj.c2) {
-            setWinner(player1);
-            setLoser(player2);
-            setW_score(counterObj.c1);
-            setL_score(counterObj.c2);
-            setGameWon(true);
+            const endGame = {
+                winner: player1,
+                loser: player2,
+                w_score: counterObj.c1,
+                l_score: counterObj.c2,
+                gameWon: true
+            };
+            setGameState(endGame);
+            
         } else if (counterObj.c2 >= 11 && counterObj.c2 -2 >= counterObj.c1) {
-            setWinner(player2);
-            setLoser(player1);
-            setW_score(counterObj.c2);
-            setL_score(counterObj.c1);
-            setGameWon(true);
+            const endGame = {
+                winner: player1,
+                loser: player2,
+                w_score: counterObj.c1,
+                l_score: counterObj.c2,
+                gameWon: true
+            };
+            setGameState(endGame);
         } 
         //  eslint-disable-next-line
     }, [counterObj])
@@ -57,16 +61,7 @@ const GameForm = ({ addToGameHistory, players }) => {
     }, [player1, player2])
 
     const handleWin = () => {
-
-        const newGame = {
-            datetime: new Date(),
-            winner_id: winner,
-            loser_id: loser,
-            w_score: w_score,
-            l_score: l_score
-        }
-
-        addToGameHistory(newGame);
+        addToGameHistory(gameState);
     }
     
     const handleConfirm = () => {
@@ -83,7 +78,7 @@ const GameForm = ({ addToGameHistory, players }) => {
     } else {
         return(
             <div>
-                {!gameWon ? (
+                {!gameState.gameWon ? (
                 <div>
                     <button 
                         onClick={()=>{increment('c1')}}
@@ -97,8 +92,8 @@ const GameForm = ({ addToGameHistory, players }) => {
                 ) : 
                 (
                 <div>
-                    <p>winner: {winner} loser: {loser}</p>
-                    <p>scores: {w_score} - {l_score}</p>
+                    <p>winner: {gameState.winner} loser: {gameState.loser}</p>
+                    <p>scores: {gameState.w_score} - {gameState.l_score}</p>
                     <button onClick={handleWin}>save game</button>
                 </div>
                 )
