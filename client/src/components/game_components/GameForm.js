@@ -2,29 +2,23 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import PlayerSelect from "./PlayerSelect";
 import PlayerService from "../../services/PlayerService";
+import Counters from "./Counters";
+import WinScreen from "./WinScreen";
 
 const GameForm = ({ addToGameHistory, players }) => {
 
-    const [counterObj, setCounterObj] = useState({
-        c1: 0,
-        c2: 0
-    });
-    
-    const [serveTracker, setServeTracker] = useState(0);
-    const serve = (serveTracker-1) % 4 < 2 ? 'serve' : 'noserve';
-
-    const [gameState, setGameState] = useState({
-        gameWon: false
-    });
-
-    const [gamePlayers, setGamePlayers] = useState({
-        player1: "",
-        player2: "",
-        winner: ""
-    })
+    // stages for displaying items
 
     const [playersSelected, setPlayersSelected] = useState(false);
     const [playersConfirmed, setPlayersConfirmed] = useState(false);
+    const [gameWon, setGameWon] = useState(false);
+
+    
+    const [endGame, setEndGame] = useState({})
+    const [gamePlayers, setGamePlayers] = useState({
+        player1: "",
+        player2: "",
+    })
 
     const handlePlayerSelect = (event) => {
         const player = event.target.name
@@ -35,60 +29,38 @@ const GameForm = ({ addToGameHistory, players }) => {
         .then(setGamePlayers(temp))
     }
 
-    const increment = (counter) => {
-        const temp = {...counterObj};
-        temp[counter] += 1;
-        setCounterObj(temp);
-    }
-
-    useEffect(() => {
-
-        setServeTracker(counterObj.c1 + counterObj.c2);
-
-        if (counterObj.c1 >= 11 && counterObj.c1 -2 >= counterObj.c2) {
-            const endGame = {
-                datetime: new Date(),
-                winner: gamePlayers.player1._id,
-                loser: gamePlayers.player2._id,
-                w_score: counterObj.c1,
-                l_score: counterObj.c2,
-                gameWon: true
-            };
-            const temp = {...gamePlayers};
-            temp.winner = "player 1";
-            setGamePlayers(temp);
-            setGameState(endGame);
-
-            console.log(gameState)
-            
-        } else if (counterObj.c2 >= 11 && counterObj.c2 -2 >= counterObj.c1) {
-            const endGame = {
-                datetime: new Date(),
-                winner: gamePlayers.player2._id,
-                loser: gamePlayers.player1._id,
-                w_score: counterObj.c1,
-                l_score: counterObj.c2,
-                gameWon: true
-            };
-            const temp = {...gamePlayers};
-            temp.winner = "player 2";
-            setGamePlayers(temp);
-            setGameState(endGame);
-
-
-        } 
-        //  eslint-disable-next-line
-
-    }, [counterObj, gamePlayers, gameState])
-
     useEffect(()=>{
-        if (gamePlayers.player1 || gamePlayers.player2) {
+        if (gamePlayers.player1 && gamePlayers.player2) {
             setPlayersSelected(true)
         }
     }, [gamePlayers])
 
-    const handleWin = () => {
-        addToGameHistory(gameState);
+    const handleWin = (player, w_score, l_score) => {
+        if (player === "player 1") {
+            const endGame = {
+                datetime: new Date(),
+                winner: gamePlayers.player1._id,
+                loser: gamePlayers.player2._id,
+                w_score: w_score,
+                l_score: l_score
+            }
+            setEndGame(endGame);
+            setGameWon(true);
+        } else if (player === 'player 2') {
+            const endGame = {
+                datetime: new Date(),
+                winner: gamePlayers.player2._id,
+                loser: gamePlayers.player1._id,
+                w_score: w_score,
+                l_score: l_score
+            }
+            setEndGame(endGame);
+            setGameWon(true);
+        }
+    }
+
+    const handleSaveGame = () => {
+        addToGameHistory(endGame);
     }
     
     const handleConfirm = () => {
@@ -98,57 +70,24 @@ const GameForm = ({ addToGameHistory, players }) => {
         setPlayersConfirmed(true);
     }
 
-    if (playersConfirmed === false) {
-        return(
-            <>
-            <p className="select-to-proceed">Select two players to proceed:</p>
-            <PlayerSelect players = {players} handlePlayerSelect={handlePlayerSelect}/>
-            <button className={playersSelected ? "confirm-button" : "inactive-confirm-button"} onClick={handleConfirm}>CONFIRM</button>
-            <Link className="back-to-menu" to="/">BACK TO MAIN MENU</Link>
-            </> 
-        )
-    } else {
-        return(
-            <div>
-                {!gameState.gameWon ? (
-                <div>
-                    <button 
-                        onClick={()=>{increment('c1')}}
-                        className={serve}>{counterObj.c1}
-                    </button>
-                    <button 
-                        onClick={()=>{increment('c2')}} 
-                        data-testid="counter-button"
-                        className={serve === 'noserve' ? 'serve' : 'noserve'}>{counterObj.c2}
-                    </button>
-                </div>
-                ) : 
-                (
-                    
-                <div>
-                    <p>winner: {
-                    gamePlayers.winner === "player 1"? gamePlayers.player1.name:gamePlayers.player2.name
-                    } 
-                    loser: {
-                    gamePlayers.winner === "player 1"? gamePlayers.player2.name:gamePlayers.player1.name
-                    }</p>
-                    <p>scores: {
-                    gamePlayers.winner === "player 1"?gameState.w_score:gameState.l_score
-                    } - {
-                    gamePlayers.winner === "player 1"?gameState.l_score:gameState.w_score
-                    }</p>
-                    <button onClick={handleWin}>save game</button>
-                </div>
-                )
-                }  
-                <Link to="/">
-                    Home</Link>
-               <p></p>
-                <Link to="/game-history">
-                    GAME HISTORY</Link>
+    return(
+        <div>
+            
+            <div className="player-select">
+                <p className="select-to-proceed">Select two players to proceed:</p>
+                <PlayerSelect players={players} handlePlayerSelect={handlePlayerSelect} gamePlayers={gamePlayers}/>
             </div>
-        )
-    }
+            <div className="counters">
+                <Counters handleWin={handleWin}/>
+            </div>
+            <div className="win-screens">
+                <WinScreen handleSaveGame={handleSaveGame}/>
+            </div>
+            <Link to="/">back to menu</Link>
+            <Link to="/game-history">recent games</Link>
+            <Link to="/game-form">play again</Link>
+        </div>
+    )
 }
 
 export default GameForm;
