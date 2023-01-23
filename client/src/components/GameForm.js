@@ -107,10 +107,11 @@ const GameForm = ({ addToGameHistory, players }) => {
                 </div>
                 )
                 }  
-                <Link to="/">
-                    Home</Link>
+                <br />
+                <Link className="back-to-menu" to="/">
+                    BACK TO MAIN MENU</Link>
                <p></p>
-                <Link to="/game-history">
+                <Link className="link-to-history" to="/game-history">
                     GAME HISTORY</Link>
             </div>
         )

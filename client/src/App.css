@@ -171,6 +171,12 @@ li {
   margin-top: -2%;
 }
 
+.player-labels {
+  color: white;
+  margin-right: -2%;
+
+}
+
 select {
   background-color: white;
   color: black;
@@ -178,9 +184,9 @@ select {
   border-radius: 17px;
   width: 200px;
   padding: 10px;
-  margin-left: 100px;
-  margin-right: 100px;
-  margin-top: 100px;
+  margin-left: 50px;
+  margin-right: 40px;
+  margin-top: 65px;
   position: center;
   appearance: none;
   -moz-appearance: none;
@@ -191,6 +197,7 @@ select {
   font-weight: 200;
   font-size: 50px;
   border-style: none;
+  margin-top: -5%;
   background-color: transparent;
   text-decoration: none;
   color: rgb(222, 222, 222);  
@@ -210,6 +217,7 @@ select {
   font-weight: 200;
   font-size: 50px;
   border-style: none;
+  margin-top: -5%;
   background-color: transparent;
   text-decoration: none;
   color: rgb(154, 154, 154);  
@@ -245,13 +253,13 @@ select {
 }
 
 .back-to-menu {
+  font-size: 20px;
  margin-top: 5%;
  position: relative;
-  z-index: 9999;
-  margin-bottom: -30%;
-  text-decoration: none;
-  color: rgb(222, 222, 222);  
-  text-shadow: 
+ margin-bottom: -30%;
+ text-decoration: none;
+ color: rgb(222, 222, 222);  
+ /* text-shadow: 
   0 0 5px rgb(222, 222, 222),
   0 0 7px rgb(222, 222, 222),
   0 0 9px rgb(222, 222, 222),
@@ -259,7 +267,7 @@ select {
   0 0 20px rgb(167, 111, 240),
   0 0 20px rgb(167, 111, 240),
   0 0 20px rgb(167, 111, 240),
-  0 0 71px rgb(167, 111, 240);
+  0 0 71px rgb(167, 111, 240); */
   transition: 0.07s;
 }
 
@@ -281,6 +289,44 @@ select {
   0 0 101px rgb(167, 111, 240);
    transition: 0.07s;
 }
+
+.link-to-history {
+  margin-top: 5%;
+  position: relative;
+   z-index: 9999;
+   margin-bottom: -30%;
+   text-decoration: none;
+   color: rgb(222, 222, 222);  
+   text-shadow: 
+   0 0 5px rgb(222, 222, 222),
+   0 0 7px rgb(222, 222, 222),
+   0 0 9px rgb(222, 222, 222),
+   0 0 8px rgb(167, 111, 240),
+   0 0 20px rgb(167, 111, 240),
+   0 0 20px rgb(167, 111, 240),
+   0 0 20px rgb(167, 111, 240),
+   0 0 71px rgb(167, 111, 240);
+   transition: 0.07s;
+ }
+ 
+ .link-to-history:hover {
+   margin-top: 5%;
+   position: relative;
+   z-index: 9999;
+   margin-bottom: -30%;
+   text-decoration: none;
+   color: white;  
+   text-shadow: 
+   0 0 7px rgb(222, 222, 222),
+   0 0 15px rgb(222, 222, 222),
+   0 0 16px rgb(222, 222, 222),
+   0 0 12px rgb(167, 111, 240),
+   0 0 32px rgb(167, 111, 240),
+   0 0 32px rgb(167, 111, 240),
+   0 0 42px rgb(167, 111, 240),
+   0 0 101px rgb(167, 111, 240);
+    transition: 0.07s;
+ }
 
 .new-player-profile {
   font-family: 'Genos', sans-serif;

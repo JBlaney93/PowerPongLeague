@@ -6,10 +6,12 @@ const PlayerSelect = ({players, setPlayer1, setPlayer2}) => {
 
     return(
         <div>
+            <label className="player-labels">Player 1:</label>
             <select defaultValue="" name="player1" onChange={(e)=>{setPlayer1(e.target.value)}}>
                 <option value=""></option>
                 {playerSelect}
             </select>
+            <label className="player-labels">Player 2:</label>
             <select defaultValue="" name="player2" onChange={(e)=>{setPlayer2(e.target.value)}}>
                 <option value="none"></option>
                 {playerSelect}

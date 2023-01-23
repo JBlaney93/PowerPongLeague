@@ -18,7 +18,7 @@ const PlayerForm = ({addToPlayers}) => {
         event.preventDefault();
 
         if (!name) {
-            setError("Name cannot be empty!");
+            setError("Please enter a name");
             return;
         }
         
@@ -65,7 +65,7 @@ const PlayerForm = ({addToPlayers}) => {
                     <br />
                     <button className="create-player-profile">CREATE</button>
                     <br />
-                    <Link to="/">Back to menu</Link>
+                    <Link className="back-to-menu" to="/">BACK TO MAIN MENU</Link>
                 </form>
             </div>
         )}
