@@ -3,15 +3,18 @@ import PlayerService from "../../services/PlayerService";
 
 const GameItem = ({ game, index }) => {
 
+    // console.log(game);
+
     const dateTime = new Date (game.datetime)
     const dateTimeFormat = dateTime.toDateString()
     const day = dateTime.getDay()
     const month = dateTime.getMonth() + 1
     const year = dateTime.getFullYear()
     
-    const [winner, setWinner] = useState("");
-    const [loser, setLoser] = useState("");
+    const [winner, setWinner] = useState({name: ""});
+    const [loser, setLoser] = useState({name: ""});
 
+    console.log(winner.name, loser.name);
 
     useEffect(()=> {
 
