@@ -7,7 +7,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-image: url("../public/img/PingPongAppWallpaper.png");
   background-size: cover;
-  color: white;
+  background-position: center;
 }
 
 code {

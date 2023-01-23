@@ -67,14 +67,23 @@ const GameForm = ({ addToGameHistory, players }) => {
     }
     
     const handleConfirm = () => {
+        if (!playersSelected) {
+            return;
+        }
         setPlayersConfirmed(true);
     }
 
     if (playersConfirmed === false) {
         return(
             <>
+            <p className="select-to-proceed">Select two players to proceed:</p>
             <PlayerSelect players = {players} setPlayer1 = {setPlayer1} setPlayer2 = {setPlayer2}/>
-            {playersSelected? (<button onClick={handleConfirm}>confirm</button>):null}
+            <br />
+            <br />
+            <br />
+            <button className={playersSelected ? "confirm-button" : "inactive-confirm-button"} onClick={handleConfirm}>CONFIRM</button>
+            <br />
+            <Link className="back-to-menu" to="/">BACK TO MAIN MENU</Link>
             </> 
         )
     } else {
