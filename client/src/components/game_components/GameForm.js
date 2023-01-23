@@ -103,11 +103,7 @@ const GameForm = ({ addToGameHistory, players }) => {
             <>
             <p className="select-to-proceed">Select two players to proceed:</p>
             <PlayerSelect players = {players} handlePlayerSelect={handlePlayerSelect}/>
-            <br />
-            <br />
-            <br />
             <button className={playersSelected ? "confirm-button" : "inactive-confirm-button"} onClick={handleConfirm}>CONFIRM</button>
-            <br />
             <Link className="back-to-menu" to="/">BACK TO MAIN MENU</Link>
             </> 
         )

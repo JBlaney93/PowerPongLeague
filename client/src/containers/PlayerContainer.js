@@ -1,4 +1,4 @@
-import PlayerForm from "../components/PlayerForm"
+import PlayerForm from "../components/player_components/PlayerForm"
 // import PlayerList from "../components/PlayerList";
 
 const PlayerContainer = ({players, addToPlayers}) => {
