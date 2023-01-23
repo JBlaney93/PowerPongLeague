@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from 'react';
+import PlayerSelect from "./PlayerSelect";
 
 const GameForm = ({ addToGameHistory, players }) => {
 
@@ -16,14 +17,11 @@ const GameForm = ({ addToGameHistory, players }) => {
     
     const [gameWon, setGameWon] = useState(false);
 
-    const playerSelect = players.map((player, index) => {
-        return <option key={index} value={player._id}>{player.name}</option>
-    })
-
     const [player1, setPlayer1] = useState("");
     const [player2, setPlayer2] = useState("");
-    
-
+    const [playersSelected, setPlayersSelected] = useState(false);
+    const [playersConfirmed, setPlayersConfirmed] = useState(false);
+  
     const increase1 = () => {
         setCounter1(counter1 + 1);
     }
@@ -49,8 +47,14 @@ const GameForm = ({ addToGameHistory, players }) => {
             setL_score(counter1);
             setGameWon(true);
         } 
-
+        //  eslint-disable-next-line
     }, [counter1, counter2])
+
+    useEffect(()=>{
+        if (player1 !== "" && player2 !== "") {
+            setPlayersSelected(true)
+        }
+    }, [player1, player2])
 
     const handleWin = () => {
 
@@ -64,19 +68,17 @@ const GameForm = ({ addToGameHistory, players }) => {
 
         addToGameHistory(newGame);
     }
+    
+    const handleConfirm = () => {
+        setPlayersConfirmed(true);
+    }
 
-    if (player1 === "" || player2 === "") {
+    if (playersConfirmed === false) {
         return(
-            <div>
-                <select defaultValue="" name="player1" onChange={(e)=>{setPlayer1(e.target.value)}}>
-                    <option value=""></option>
-                    {playerSelect}
-                </select>
-                <select defaultValue="" name="player2" onChange={(e)=>{setPlayer2(e.target.value)}}>
-                    <option value="none"></option>
-                    {playerSelect}
-                </select>   
-            </div>
+            <>
+            <PlayerSelect players = {players} setPlayer1 = {setPlayer1} setPlayer2 = {setPlayer2}/>
+            {playersSelected? (<button onClick={handleConfirm}>confirm</button>):null}
+            </> 
         )
     } else {
         return(
@@ -90,14 +92,14 @@ const GameForm = ({ addToGameHistory, players }) => {
                         onClick={increase2} 
                         className={serve === 'noserve' ? 'serve' : 'noserve'}>{counter2}</button>
                 </div>
-                    ) : 
-                    (
+                ) : 
+                (
                 <div>
                     <p>winner: {winner} loser: {loser}</p>
                     <p>scores: {w_score} - {l_score}</p>
                     <button onClick={handleWin}>save game</button>
                 </div>
-                    )
+                )
                 }  
                 <Link to="/">
                     Home</Link>
