@@ -97,7 +97,6 @@ const GameForm = ({ addToGameHistory, players }) => {
 
            {playersConfirmed && !gameWon ?
                <div className="counters">
-                   <p>Log your score here!</p>
                    <Counters handleWin={handleWin} player1={gamePlayers.player1.name} player2={gamePlayers.player2.name} />
                </div>
                : null}
