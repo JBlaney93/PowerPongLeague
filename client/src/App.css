@@ -589,5 +589,20 @@ button {
   transition: 0.07s;
 }
 
+.leaderboard-box {
+  border-radius: 20px;
+  padding: 10px;
+}
 
+.leaderboard-heading {
+  font-family: 'Exo 2', sans-serif;
+  font-size: 40px;
+  text-align: left;
+  margin-left: 30px;
+}
 
+.table-head {
+  font-family: 'Exo 2', sans-serif;
+  font-weight: 600;
+  padding: 10px;
+}
