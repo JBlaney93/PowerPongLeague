@@ -25,7 +25,7 @@ const GameItem = ({ game, index }) => {
             // console.log(game, result);
         })
 
-    }, [])
+    }, [game])
 
     return(
         <div>
