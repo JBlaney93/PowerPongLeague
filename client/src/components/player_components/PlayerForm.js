@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 
 const PlayerForm = ({ addToPlayers }) => {
 
-    console.log(addToPlayers)
     const [name, setName] = useState("");
     const handleChange = (event) => {
         setName(event.target.value)
