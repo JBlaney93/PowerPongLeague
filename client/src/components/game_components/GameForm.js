@@ -42,7 +42,6 @@ const GameForm = ({ addToGameHistory, players }) => {
            }
            setEndGame(endGame);
            setGameWon(true);
-           console.log(endGame);
        } else if (player === 'player2') {
            const endGame = {
                datetime: new Date(),

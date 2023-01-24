@@ -6,7 +6,6 @@ const CreateLeaderboardRouter = (playersCollection, gamesCollection) => {
 
     const router = express.Router();
 
-
     router.get('/', async function getLeaderboard(req, res) {
         
             const players = await playersCollection.find().toArray();

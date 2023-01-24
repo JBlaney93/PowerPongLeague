@@ -3,8 +3,6 @@ const PlayerStats = (payload) => {
     const players = payload.players;
     const games = payload.games;
 
-    console.log(games[0].winner_id, players[6]._id);
-
     for (let player of players) {
 
         player.wins = 0;
