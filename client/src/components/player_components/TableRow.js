@@ -1,6 +1,6 @@
 const TableRow = ({index, player}) => {
 
-    console.log(index);
+    const win_percent = (player.win_percentage*100).toFixed(2);
 
     return(
         <tr>
@@ -9,7 +9,7 @@ const TableRow = ({index, player}) => {
             <td>{player.wins}</td>
             <td>{player.losses}</td>
             <td>{player.total_games}</td>
-            <td>{player.win_percentage}</td>
+            <td>{win_percent}%</td>
             <td>{player.weighted_score}</td>
         </tr>
     )
