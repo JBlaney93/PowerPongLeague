@@ -68,7 +68,7 @@ const PlayerForm = ({ addToPlayers }) => {
                             <br />
                         </form>
                     </fieldset>
-                    <Link to="/">BACK TO MENU</Link>
+                    <Link className="back-to-menu" to="/">BACK TO MENU</Link>
                 </div>
             )}
         </div>
