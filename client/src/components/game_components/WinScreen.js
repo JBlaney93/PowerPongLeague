@@ -18,7 +18,7 @@ const WinScreen = ({handleSaveGame, endGame}) => {
             setGameInfo(temp);
         })
     },
-    [endGame])
+    [endGame, gameInfo])
 
     return (
         <div>

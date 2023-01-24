@@ -10,6 +10,7 @@ const GameForm = ({ addToGameHistory, players }) => {
     // stages for displaying items
     const [playersSelected, setPlayersSelected] = useState(false);
     const [playersConfirmed, setPlayersConfirmed] = useState(false);
+    const [errSamePlayer, setErrSamePlayer] = useState(false)
     const [gameWon, setGameWon] = useState(false);
     const [endGame, setEndGame] = useState({})
 
@@ -57,7 +58,12 @@ const GameForm = ({ addToGameHistory, players }) => {
 
     useEffect(() => {
         if (gamePlayers.player1 && gamePlayers.player2) {
-            setPlayersSelected(true)
+
+            if (gamePlayers.player1.name !== gamePlayers.player2.name) {
+                setPlayersSelected(true)
+            } else {
+                setErrSamePlayer("sorry, you can't choose the same player in both slots")
+            }
         }
     }, [gamePlayers])
 
@@ -73,8 +79,12 @@ const GameForm = ({ addToGameHistory, players }) => {
     const handleConfirm = () => {
         if (!playersSelected) {
             return;
+        } else if (gamePlayers.player1 === gamePlayers.player2) {
+            
+        } else {
+            setPlayersConfirmed(true);
+
         }
-        setPlayersConfirmed(true);
     }
 
 
@@ -86,6 +96,7 @@ const GameForm = ({ addToGameHistory, players }) => {
                         <legend className="select-to-proceed">SELECT TWO PLAYERS TO PROCEED:</legend>
                         <PlayerSelect players={players} handlePlayerSelect={handlePlayerSelect} gamePlayers={gamePlayers} />
                         <button className={playersSelected ? "confirm-button" : "inactive-confirm-button"} onClick={handleConfirm}>CONFIRM</button>
+                        {errSamePlayer?<p>{errSamePlayer}</p>:null}
                     </fieldset>
                 </div>
                 : null}
