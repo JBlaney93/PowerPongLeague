@@ -297,7 +297,8 @@ select:hover {
 }
 
 .back-to-menu {
- font-size: 20px;
+ font-family: 'Exo 2', sans-serif;
+ font-size: 18px;
  margin-top: 5%;
  margin-bottom: 10%;
  position: static;
@@ -328,6 +329,7 @@ select:hover {
 }
 
 .link-to-history {
+  font-family: 'Exo 2', sans-serif;
   margin-top: 5%;
   position: relative;
    z-index: 9999;
@@ -366,38 +368,23 @@ select:hover {
  }
 
 .new-player-profile {
-  font-family: 'Genos', sans-serif;
-  font-size: 50px;
-  font-weight: 200;
-  color: rgb(222, 222, 222);  
-  text-shadow: 
-  0 0 3px rgba(222, 222, 222, 0.619),
-  0 0 5px rgb(222, 222, 222, 0.619),
-  0 0 6px rgb(222, 222, 222, 0.619),
-  0 0 7px rgba(167, 111, 240, 0.663),
-  0 0 10px rgb(167, 111, 240, 0.663),
-  0 0 10px rgb(167, 111, 240, 0.663),
-  0 0 10px rgb(167, 111, 240, 0.663),
-  0 0 61px rgb(167, 111, 240, 0.663);
-  transition: 0.07s;
+  font-family: 'Exo 2', sans-serif;
+  text-align: left;
+  font-size: 20px;
+  margin-top: -2%;
+  margin-left: 2%;
 }
 
 .new-player-profile-form {
   display: inline-block;
-  box-shadow: 
-  0 0 3px rgba(222, 222, 222, 0.619),
-  0 0 5px rgb(222, 222, 222, 0.619),
-  0 0 6px rgb(222, 222, 222, 0.619),
-  0 0 7px rgba(167, 111, 240, 0.663),
-  0 0 10px rgb(167, 111, 240, 0.663),
-  0 0 10px rgb(167, 111, 240, 0.663),
-  0 0 10px rgb(167, 111, 240, 0.663),
-  0 0 61px rgb(167, 111, 240, 0.663);
+  border-style: solid;
+  border-color: white;
+  border-width: 1px;
+  border-radius: 20px;
   background-color: rgba(13, 8, 46, 0.619);
   margin-left: 20px;
   margin-right: 20px;
-  border-style: hidden;
-  border-radius: 20px;
+  
   height: 15%;
   width: 45%;
   position: relative;
