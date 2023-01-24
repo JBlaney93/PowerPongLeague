@@ -60,7 +60,8 @@ const GameForm = ({ addToGameHistory, players }) => {
         if (gamePlayers.player1 && gamePlayers.player2) {
 
             if (gamePlayers.player1.name !== gamePlayers.player2.name) {
-                setPlayersSelected(true)
+                setErrSamePlayer(false);
+                setPlayersSelected(true);
             } else {
                 setErrSamePlayer("sorry, you can't choose the same player in both slots")
             }
