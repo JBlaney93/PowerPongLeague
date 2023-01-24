@@ -81,6 +81,11 @@ select {
 }
 
 
+
+:root {
+  --text-color: ;
+}
+
 /* ========================================= */
 /* LOGOS */
 
@@ -109,6 +114,17 @@ ul {
 
  }
 
+ body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+
  /* ============================= */
  /* MAIN MENU */
 
@@ -123,10 +139,10 @@ ul {
   align-items: center;
   /* gap: 2rem; */
   text-align: center;
+  justify-content: flex-end;
   font-family: 'Genos', sans-serif;
   text-decoration: none;
   color: rgb(222, 222, 222);
-  /* text-align: center; */
 }
 
 .image-container {
@@ -293,12 +309,17 @@ select {
 }
 
 
+.back-to-link-container {
+  display: flex;
+  flex-direction: column;
+  /* justify-items: flex-end; */
+  margin-top: 50px;
+
+}
+
 .back-to-menu {
-margin-top: 5%;
-position: relative;
- z-index: 9999;
- margin-bottom: -30%;
  text-decoration: none;
+ font-size: 32px;
  color: rgb(222, 222, 222); 
  text-shadow:
  0 0 5px rgb(222, 222, 222),
@@ -309,15 +330,10 @@ position: relative;
  0 0 20px rgb(167, 111, 240),
  0 0 20px rgb(167, 111, 240),
  0 0 71px rgb(167, 111, 240);
- transition: 0.07s;
 }
 
 
 .back-to-menu:hover {
- margin-top: 5%;
- position: relative;
- z-index: 9999;
- margin-bottom: -30%;
  text-decoration: none;
  color: white; 
  text-shadow:
@@ -329,11 +345,25 @@ position: relative;
  0 0 32px rgb(167, 111, 240),
  0 0 42px rgb(167, 111, 240),
  0 0 101px rgb(167, 111, 240);
-  transition: 0.07s;
+  transition: all ease 0.1s;
+}
+
+/* ========== */
+/* GAME OVER */
+
+.game-over {
+  font-size: 4rem;
+  font-weight: 300;
+  color: red; 
 }
 
 /* =================== */
 /* GAME FORM */
+
+.player-name {
+  font-size: 4rem;
+  font-weight: 300;
+}
 
 .counters {
   display: flex;
@@ -345,16 +375,105 @@ position: relative;
   align-items: center;
 }
 
+ 
 .serve {
   color: green;
-  padding: 30px;
-  font-size: 60px;
 }
 
 .noserve {
-  padding: 30px;
-  font-size: 60px;
+  color:rgba(240, 248, 255, 0);
 }
+
+
+button {
+  position: relative;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  outline-offset: 4px;
+  transition: filter 250ms;
+  user-select: none;
+  touch-action: manipulation;
+ }
+ 
+ .shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: hsl(0deg 0% 0% / 0.25);
+  will-change: transform;
+  transform: translateY(2px);
+  transition: transform
+     600ms
+     cubic-bezier(.3, .7, .4, 1);
+ }
+ 
+ .edge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: linear-gradient(
+     to left,
+     hsl(340deg 100% 16%) 0%,
+     hsl(340deg 100% 32%) 8%,
+     hsl(340deg 100% 32%) 92%,
+     hsl(340deg 100% 16%) 100%
+   );
+ }
+ 
+ .front {
+  display: block;
+  position: relative;
+  padding: 12px 27px;
+  border-radius: 12px;
+  font-size: 3rem;
+  color: white;
+  background: hsl(345deg 100% 47%);
+  will-change: transform;
+  transform: translateY(-4px);
+  transition: transform
+     600ms
+     cubic-bezier(.3, .7, .4, 1);
+ }
+ 
+ button:hover {
+  filter: brightness(110%);
+ }
+ 
+ button:hover .front {
+  transform: translateY(-6px);
+  transition: transform
+     250ms
+     cubic-bezier(.3, .7, .4, 1.5);
+ }
+ 
+ button:active .front {
+  transform: translateY(-2px);
+  transition: transform 34ms;
+ }
+ 
+ button:hover .shadow {
+  transform: translateY(4px);
+  transition: transform
+     250ms
+     cubic-bezier(.3, .7, .4, 1.5);
+ }
+ 
+ button:active .shadow {
+  transform: translateY(1px);
+  transition: transform 34ms;
+ }
+ 
+ button:focus:not(:focus-visible) {
+  outline: none;
+ }
 
 /* NEW PLAYER */
 
