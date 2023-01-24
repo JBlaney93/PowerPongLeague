@@ -1,10 +1,14 @@
 const WinScreen = ({handleSaveGame}) => {
     return (
         <div>
-            <p>game over! save your game or return home</p>
-            <button onClick={()=>{handleSaveGame()}}>save game</button>
+            <p>GAME OVER</p>
+            <br />
+            <p> Save your game or return home</p>
+            <br />
+            <button onClick={()=>{handleSaveGame()}}>SAVE GAME</button>
         </div>
     )
-}
-
-export default WinScreen;
+ }
+ 
+ 
+ export default WinScreen;
