@@ -219,7 +219,8 @@ li {
 /* START GAME */
 
 .select-to-proceed {
- font-size: 30px;
+  font-family: 'Exo 2', sans-serif;
+  font-size: 30px;
 }
 
 .player-select-form {
@@ -319,6 +320,8 @@ select {
 
 .back-to-menu {
  text-decoration: none;
+ margin-top: -1%;
+ font-weight: 300;
  font-size: 32px;
  color: rgb(222, 222, 222); 
  text-shadow:
@@ -475,6 +478,7 @@ button {
   outline: none;
  }
 
+ /* ================================ */
 /* NEW PLAYER */
 
 .new-player-profile {
@@ -588,6 +592,9 @@ button {
  0 0 101px rgb(167, 111, 240);
   transition: 0.07s;
 }
+
+/* ====================================== */
+/* LEADERBOARD */
 
 .leaderboard-box {
   border-radius: 20px;
