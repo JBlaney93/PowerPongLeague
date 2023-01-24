@@ -14,7 +14,7 @@ const GameItem = ({ game, index }) => {
     const [winner, setWinner] = useState({name: ""});
     const [loser, setLoser] = useState({name: ""});
 
-    console.log(winner.name, loser.name);
+    // console.log(winner.name, loser.name);
 
     useEffect(()=> {
 
@@ -22,6 +22,7 @@ const GameItem = ({ game, index }) => {
         .then(result => {
             setWinner(result[0]);
             setLoser(result[1]);
+            // console.log(game, result);
         })
 
     }, [])

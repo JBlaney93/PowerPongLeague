@@ -38,7 +38,7 @@ const MainContainer = () => {
         GameService.addGame(game)
         .then(res => GameService.findGame(res.insertedId))
         .then(res => duplicate.push(res))
-        .then(setGameHistory(duplicate))
+        .then(()=>setGameHistory(duplicate))
                
     }
 
@@ -48,7 +48,7 @@ const MainContainer = () => {
         PlayerService.addPlayer(player)
         .then(res => PlayerService.findPlayer(res.insertedId))
         .then(res => duplicate.push(res))
-        .then(setPlayers(duplicate));
+        .then(()=> setPlayers(duplicate));
 
     }
 

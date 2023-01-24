@@ -3,6 +3,8 @@ import GameItem from "../game_components/GameItem"
 import React from "react";
 
 const GameHistory = ({ gameHistory }) => {
+
+    // console.log(gameHistory);
     
     const gameList = gameHistory.slice(0).reverse().map((game, index) => {
         return <GameItem

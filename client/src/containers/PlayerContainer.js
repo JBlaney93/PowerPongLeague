@@ -1,12 +1,12 @@
 import PlayerForm from "../components/player_components/PlayerForm"
-// import PlayerList from "../components/PlayerList";
+import PlayerList from "../components/player_components/PlayerList";
 
 const PlayerContainer = ({players, addToPlayers}) => {
 
     return(
         <>
             <PlayerForm addToPlayers={addToPlayers}/>
-            {/* <PlayerList players = {players}/> */}
+            <PlayerList players = {players}/>
         </>
     )
 }

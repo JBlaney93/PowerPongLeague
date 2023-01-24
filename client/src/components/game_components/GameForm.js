@@ -25,7 +25,7 @@ const GameForm = ({ addToGameHistory, players }) => {
         
         PlayerService.findPlayer(event.target.value)
         .then(obj => temp[player] = obj)
-        .then(setGamePlayers(temp))
+        .then(() => setGamePlayers(temp))
     }
 
     const handleWin = (player, w_score, l_score) => {
@@ -39,6 +39,7 @@ const GameForm = ({ addToGameHistory, players }) => {
             }
             setEndGame(endGame);
             setGameWon(true);
+            console.log(endGame);
         } else if (player === 'player2') {
             const endGame = {
                 datetime: new Date(),
@@ -49,6 +50,7 @@ const GameForm = ({ addToGameHistory, players }) => {
             }
             setEndGame(endGame);
             setGameWon(true);
+
         }
     }
 
