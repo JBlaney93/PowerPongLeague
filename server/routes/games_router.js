@@ -36,8 +36,18 @@ const createGamesRouter = (collection) => {
     // save game
 
     router.post('/', (req, res) => {
+
+        const newGame = {
+            datetime: req.body.datetime,
+            w_score: req.body.w_score,
+            l_score: req.body.l_score,
+            winner_id: ObjectId(req.body.winner),
+            loser_id: ObjectId(req.body.loser)
+        }
+        console.log(newGame.winner_id, req.body.winner_id);
+
         collection
-        .insertOne(req.body)
+        .insertOne(newGame)
         .then(result => res.json(result))
         .catch(err => {
             console.error(err);

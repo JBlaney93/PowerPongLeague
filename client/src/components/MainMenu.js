@@ -2,20 +2,26 @@ import { Link } from "react-router-dom";
 
 const MainMenu = () => {
     return(
-        <div>
+        <div className="main-menu-container">
             <ul>
                 <li>
-                    <Link to="/game-form">
+                    <Link 
+                        className="main-menu-item-link"
+                        to="/game-form">
                         START GAME
                     </Link>
                 </li>
                 <li>
-                    <Link to="/player-form">
-                        ADD PLAYER
+                    <Link
+                        className="main-menu-item-link"
+                        to="/player-form">
+                        CREATE NEW PLAYER
                     </Link>
                 </li>
                 <li>
-                    <Link to="/game-history">
+                    <Link 
+                        className="main-menu-item-link"
+                        to="/game-history">
                         GAME HISTORY
                     </Link>
                 </li>
