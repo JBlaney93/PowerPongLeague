@@ -32,20 +32,32 @@ const Counters = ({handleWin, player1, player2}) => {
     return (
         <div className="buttons-container">
             <div>
-                <p>{player1}</p>
+                <p className="player-name">{player1}</p>
                 <button
                     onClick={() => { increment('c1') }}
-                    className={serve}>{counterObj.c1}
+                    className={serve}
+                    >
+                        <span class="shadow"></span>
+                        <span class="edge"></span>
+                        <span class="front text"> {counterObj.c1}
+                        </span>
                 </button>
+                <p className={serve}>SERVE</p>
             </div>
             <h1>VS</h1>
             <div>
-                <p>{player2}</p>
+                <p className="player-name">{player2}</p>
                 <button
                     onClick={() => { increment('c2') }}
                     data-testid="counter-button"
-                    className={serve === 'noserve' ? 'serve' : 'noserve'}>{counterObj.c2}
+                    className={serve === 'noserve' ? 'serve' : 'noserve'}
+                    >
+                        <span class="shadow"></span>
+                        <span class="edge"></span>
+                        <span class="front text"> {counterObj.c2}
+                        </span>
                 </button>
+                <p className={serve === 'noserve' ? 'serve' : 'noserve'}>SERVE</p>
             </div>
         </div>
     )
