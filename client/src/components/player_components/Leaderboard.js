@@ -21,16 +21,18 @@ const Leaderboard = ({leaderboard}) => {
     return(
     <div>
         <table>
-            <tr>
-                <td>position</td>
-                <td>name</td>
-                <td>wins</td>
-                <td>losses</td>
-                <td>total_games</td>
-                <td>win_percentage</td>
-                <td>weighted_score</td>
-            </tr>
+            <tbody>
+                <tr>
+                    <td>position</td>
+                    <td>name</td>
+                    <td>wins</td>
+                    <td>losses</td>
+                    <td>total_games</td>
+                    <td>win_percentage</td>
+                    <td>weighted_score</td>
+                </tr>
             {table}
+            </tbody>
         </table>
         <Link className="back-to-menu" to="/">BACK TO MENU</Link>
     </div>
