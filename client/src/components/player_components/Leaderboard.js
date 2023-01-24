@@ -17,12 +17,12 @@ const Leaderboard = ({ leaderboard }) => {
         return <TableRow key={player._id} index={index} player={player} />
     })
 
-
     return (
         <div>
             <fieldset className="leaderboard-box">
                 <legend className="leaderboard-heading">LEADERBOARD</legend>
                 <table>
+                    <tbody>
                     <tr>
                         <td className="table-head">POSITION</td>
                         <td className="table-head">NAME</td>
@@ -33,6 +33,7 @@ const Leaderboard = ({ leaderboard }) => {
                         <td className="table-head">WEIGHTED SCORE</td>
                     </tr>
                     {table}
+                    <tbody>
                 </table>
             </fieldset>
             <Link className="back-to-menu" to="/">BACK TO MENU</Link>
