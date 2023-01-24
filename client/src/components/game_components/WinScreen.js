@@ -8,6 +8,8 @@ const WinScreen = ({handleSaveGame, endGame}) => {
         loser: null,
     })
 
+    const [gameSaved, setGameSaved] = useState(false)
+
 
     useEffect(()=>{
         Promise.all([PlayerService.findPlayer(endGame.winner_id), PlayerService.findPlayer(endGame.loser_id)])
@@ -20,12 +22,19 @@ const WinScreen = ({handleSaveGame, endGame}) => {
     },
     [endGame, gameInfo])
 
+    const handleSaveGameClicked = () => {
+        setGameSaved(true);
+        handleSaveGame();
+    }
+
     return (
         <div>
             <p className="game-over">GAME OVER</p>
             <p>result:</p>
             <p>{gameInfo.winner} {endGame.w_score} - {endGame.l_score} {gameInfo.loser}</p>
-            <button className="confirm-button" onClick={()=>{handleSaveGame()}}>SAVE GAME</button>
+            {!gameSaved? 
+            (<button className="confirm-button" onClick={handleSaveGameClicked}>SAVE GAME</button>):
+            (<button className="inactive-confirm-button">game saved</button>)}
         </div>
     )
  }
