@@ -2,10 +2,6 @@ import { useEffect } from "react";
 
 const PlayerSelect = ({ players, handlePlayerSelect }) => {
 
-
-   useEffect(() => { }, [])
-
-
    const playerSelect = players.map((player, index) => {
        return <option key={index} value={player._id}>{player.name}</option>
    })
