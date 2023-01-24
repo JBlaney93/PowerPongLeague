@@ -613,3 +613,78 @@ button {
   font-weight: 600;
   padding: 10px;
 }
+
+
+
+
+
+.game-history-container {
+  background: rgba(255, 255, 255, 0.111);
+  border-radius: 10px;
+  padding: 0 20px;
+}
+
+.game-history-header {
+  font-family: 'Exo 2', sans-serif;
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.game-history-p1 {
+  font-size: 32px;
+}
+.game-history-p2 {
+  font-size: 20px;
+  margin-top: -15px;
+  margin-bottom: 15px;
+}
+
+.winner-text {
+  /* color: green; */
+  font-family: 'Exo 2', sans-serif;
+  font-size: 38px;
+  font-weight: 300;
+  color: #fff;
+  text-shadow:
+      0 0 7px #ff7aff,
+      0 0 10px #ff7aff,
+      0 0 21px #ff7aff,
+      0 0 42px #ff7aff,
+      0 0 82px #ff7aff,
+      0 0 92px #FF00FF,
+      0 0 102px #FF00FF,
+      0 0 151px #FF00FF;
+}
+
+.loser-text {
+  /* color:red ; */
+  font-family: 'Exo 2', sans-serif;
+  font-size: 38px;
+  font-weight: 300;
+  color: #fff;
+  text-shadow:
+      0 0 7px #00ffff,
+      0 0 10px #00ffff,
+      0 0 21px #00ffff,
+      0 0 42px #0099ff,
+      0 0 82px #0099ff,
+      0 0 92px #0099ff,
+      0 0 102px #0011ff,
+      0 0 151px #0011ff;
+}
+
+.player-score-text {
+  font-size: 36px;
+  font-weight: 400;
+}
+
+.player-names-div {
+  display:flex;
+  flex-direction: column;
+}
+
+.winner-loser-div {
+  display: flex;
+ justify-content: space-evenly;
+}
+
