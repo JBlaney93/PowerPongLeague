@@ -15,6 +15,7 @@ import PlayerContainer from "./PlayerContainer";
 import PlayerService from "../services/PlayerService";
 import GameService from "../services/GameService";
 import Leaderboard from "../components/player_components/Leaderboard";
+import LeaderboardService from "../services/LeaderboardService";
 
 
 const MainContainer = () => {
@@ -22,13 +23,15 @@ const MainContainer = () => {
 
     const [gameHistory, setGameHistory] = useState([])
     const [players, setPlayers] = useState([])
+    const [leaderboard, setLeaderboard] = useState([])
 
     useEffect(()=>{
 
-        Promise.all([PlayerService.getPlayers(), GameService.getGames()])
+        Promise.all([PlayerService.getPlayers(), GameService.getGames(), LeaderboardService.getLeaderboard()])
         .then((result) => {
             setPlayers(result[0]);
             setGameHistory(result[1]);
+            setLeaderboard(result[2][0]);
         })
 
     },[])
@@ -65,7 +68,7 @@ const MainContainer = () => {
                         <Route path="/game-history" 
                             element={ <GameHistory gameHistory={gameHistory}/>} />
                         <Route path="/leaderboard"
-                            element={ <Leaderboard players={players}/>} />
+                            element={ <Leaderboard leaderboard={leaderboard}/>} />
                     </Routes>
             </Router>
         </div>
