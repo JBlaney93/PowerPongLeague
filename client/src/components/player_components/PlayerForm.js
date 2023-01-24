@@ -17,7 +17,7 @@ const PlayerForm = ({ addToPlayers }) => {
         event.preventDefault();
 
         if (!name) {
-            setError("Name cannot be empty!");
+            setError("Please enter a name");
             return;
         }
 
@@ -40,14 +40,16 @@ const PlayerForm = ({ addToPlayers }) => {
                 </div>
             ) : (
                 <div>
-                    <fieldset className="player-select-form">
-                        <legend className="select-to-proceed">NEW PLAYER PROFILE</legend>
+                    <fieldset className="new-player-profile-form">
+                        <legend className="new-player-profile-heading">NEW PLAYER PROFILE</legend>
                         <br />
                         {error && <p style={{ color: 'red' }}>{error}</p>}
                         <form className=""
                             onSubmit={handleSubmit}
                             data-testid="save-player-button">
-                            <label className="select-to-proceed">NAME: </label>
+                            <label className="new-player-name">NAME: </label>
+                            <br />
+                            <br />
                             <input
                                 className="new-player-name-field"
                                 value={name}
@@ -57,18 +59,12 @@ const PlayerForm = ({ addToPlayers }) => {
                             />
                             <br />
                             <br />
-                            <label className="choose-avatar">Choose an avatar: </label>
-                            <br />
-                            <br />
-                            <p>SELECTION OF AVATAR IMAGES HERE</p>
-                            <br />
-                            <br />
                             <button className="confirm-button">CREATE</button>
 
                             <br />
                         </form>
                     </fieldset>
-                    <Link to="/">BACK TO MENU</Link>
+                    <Link className="back-to-menu" to="/">BACK TO MAIN MENU</Link>
                 </div>
             )}
         </div>

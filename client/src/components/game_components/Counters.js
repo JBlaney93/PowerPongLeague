@@ -57,6 +57,7 @@ const Counters = ({handleWin, player1, player2}) => {
                 </button>
                 <p className={serve === 'noserve' ? 'serve' : 'noserve'}>SERVE</p>
             </div>
+            
         </div>
     )
 }
