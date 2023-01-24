@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const MainMenu = () => {
     return(
-        <div className="main-menu-container">
+        <div className="main-menu-container1">
             <ul>
                 <li>
                     <Link 
