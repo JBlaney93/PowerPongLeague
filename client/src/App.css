@@ -80,14 +80,37 @@ select {
  }
 }
 
+/* LOGOS */
 
+.powerpong-logo {
+  display: flex;
+  margin: 0 auto;
+  padding-top: 40px;
+  width: 50%;
+  height: 50%;
+  position: center;
+  size-adjust: 70em;
+ }
+ 
+ 
+ .league-logo {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 3%;
+  width: 20%;
+  height: 20%;
+  position: center;
+ }
 
+ /* MAIN MENU */
 
 .main-menu-container {
  font-family: 'Genos', sans-serif;
  text-decoration: none;
  color: rgb(222, 222, 222);
  text-align: center;
+ margin-top: -1%;
 }
 
 
@@ -143,8 +166,8 @@ li {
 
 
 .main-menu-item-link:hover {
- color: white;
- font-weight: 300;
+ color: red;
+ /* font-weight: bolder; */
  text-shadow:
  0 0 7px rgba(222, 222, 222, 0.665),
  0 0 15px rgb(222, 222, 222),
@@ -156,30 +179,7 @@ li {
  0 0 101px rgb(167, 111, 240);
 }
 
-
-.powerpong-logo {
- display: flex;
- margin-top: 6%;
- margin-left: auto;
- margin-right: auto;
- margin-bottom: -4%;
- width: 50%;
- height: 50%;
- position: center;
- size-adjust: 70em;
-}
-
-
-.league-logo {
- display: flex;
- margin-left: auto;
- margin-right: auto;
- margin-bottom: 3%;
- width: 20%;
- height: 20%;
- position: center;
-}
-
+/* START GAME */
 
 .select-to-proceed {
  font-size: 30px;
@@ -298,6 +298,7 @@ position: relative;
   transition: 0.07s;
 }
 
+/* NEW PLAYER */
 
 .new-player-profile {
  font-family: 'Genos', sans-serif;
@@ -573,20 +574,6 @@ li {
 }
 
 
-.main-menu-item-link:hover {
- color: white;
- font-weight: 200;
- text-shadow:
- 0 0 7px rgba(222, 222, 222, 0.665),
- 0 0 15px rgb(222, 222, 222),
- 0 0 16px rgb(222, 222, 222),
- 0 0 12px rgb(167, 111, 240),
- 0 0 32px rgb(167, 111, 240),
- 0 0 32px rgb(167, 111, 240),
- 0 0 42px rgb(167, 111, 240),
- 0 0 101px rgb(167, 111, 240);
-}
-
 
 .main-menu-item-link:after {
  color: rgb(222, 222, 222);
@@ -604,17 +591,7 @@ li {
 }
 
 
-.powerpong-logo {
- display: flex;
- margin-top: 6%;
- margin-left: auto;
- margin-right: auto;
- margin-bottom: -4%;
- width: 50%;
- height: 50%;
- position: center;
- size-adjust: 70em;
-}
+
 
 
 .league-logo {

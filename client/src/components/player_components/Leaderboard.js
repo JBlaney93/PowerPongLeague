@@ -4,7 +4,7 @@ import GameService from "../../services/GameService";
 
 const Leaderboard = ({players}) => {
 
-    return(<Link to="/">Home</Link>)
+    return(<Link to="/">BACK TO MENU</Link>)
 }
 
 export default Leaderboard;
