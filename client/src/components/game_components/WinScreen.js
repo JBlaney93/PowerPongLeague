@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import PlayerService from "../../services/PlayerService";
 
-const WinScreen = ({handleSaveGame, endGame}) => {
+const WinScreen = ({handleSaveGame, endGame, handleReset}) => {
 
     const [gameInfo, setGameInfo] = useState({
         winner: null,
@@ -27,14 +27,22 @@ const WinScreen = ({handleSaveGame, endGame}) => {
         handleSaveGame();
     }
 
+    const handlePlayAgainClicked = () => {
+        setGameSaved(false);
+        handleReset();
+    }
+
     return (
         <div>
             <p className="game-over">GAME OVER</p>
             <p>result:</p>
             <p>{gameInfo.winner} {endGame.w_score} - {endGame.l_score} {gameInfo.loser}</p>
-            {!gameSaved? 
-            (<button className="confirm-button" onClick={handleSaveGameClicked}>SAVE GAME</button>):
-            (<button className="inactive-confirm-button">game saved</button>)}
+            <div className="win-screen-menu">
+                {!gameSaved? 
+                (<button className="confirm-button" onClick={handleSaveGameClicked}>SAVE GAME</button>):
+                (<button className="inactive-confirm-button">game saved</button>)}
+                <button className="back-to-menu" onClick={handlePlayAgainClicked}>play again</button>
+            </div>
         </div>
     )
  }
