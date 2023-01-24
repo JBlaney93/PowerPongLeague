@@ -14,6 +14,7 @@ import PlayerContainer from "./PlayerContainer";
 
 import PlayerService from "../services/PlayerService";
 import GameService from "../services/GameService";
+import Leaderboard from "../components/player_components/Leaderboard";
 
 
 const MainContainer = () => {
@@ -63,6 +64,8 @@ const MainContainer = () => {
                             element={ <PlayerContainer players = {players} addToPlayers={addToPlayers}/>} />
                         <Route path="/game-history" 
                             element={ <GameHistory gameHistory={gameHistory}/>} />
+                        <Route path="/leaderboard"
+                            element={ <Leaderboard players={players}/>} />
                     </Routes>
             </Router>
         </div>

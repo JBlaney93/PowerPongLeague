@@ -4,12 +4,10 @@ import PlayerSelect from "./PlayerSelect";
 import PlayerService from "../../services/PlayerService";
 import Counters from "./Counters";
 import WinScreen from "./WinScreen";
+
 const GameForm = ({ addToGameHistory, players }) => {
 
-
    // stages for displaying items
-
-
    const [playersSelected, setPlayersSelected] = useState(false);
    const [playersConfirmed, setPlayersConfirmed] = useState(false);
    const [gameWon, setGameWon] = useState(false);
@@ -37,8 +35,8 @@ const GameForm = ({ addToGameHistory, players }) => {
        if (player === "player1") {
            const endGame = {
                datetime: new Date(),
-               winner: gamePlayers.player1._id,
-               loser: gamePlayers.player2._id,
+               winner_id: gamePlayers.player1._id,
+               loser_id: gamePlayers.player2._id,
                w_score: w_score,
                l_score: l_score
            }
@@ -48,8 +46,8 @@ const GameForm = ({ addToGameHistory, players }) => {
        } else if (player === 'player2') {
            const endGame = {
                datetime: new Date(),
-               winner: gamePlayers.player2._id,
-               loser: gamePlayers.player1._id,
+               winner_id: gamePlayers.player2._id,
+               loser_id: gamePlayers.player1._id,
                w_score: w_score,
                l_score: l_score
            }

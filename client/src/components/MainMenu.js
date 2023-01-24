@@ -25,6 +25,13 @@ const MainMenu = () => {
                         GAME HISTORY
                     </Link>
                 </li>
+                <li>
+                    <Link   
+                        className="main-menu-item-link"
+                        to="/leaderboard">
+                        LEADERBOARD
+                    </Link>
+                </li>
             </ul>
         </div>
     )
