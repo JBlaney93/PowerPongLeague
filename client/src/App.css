@@ -107,8 +107,8 @@ ul {
 
  .league-logo {
   /* display: flex; */
-  margin: -50px auto 0 auto;
-  /* margin-bottom: 3%; */
+  margin-top: -60px;
+  margin-bottom: 20px;
   width: 20%;
   height: 20%;
 
@@ -137,7 +137,6 @@ main {
   display:flex;
   flex-direction: column;
   align-items: center;
-  /* gap: 2rem; */
   text-align: center;
   justify-content: flex-end;
   font-family: 'Genos', sans-serif;
@@ -155,66 +154,69 @@ li {
  list-style: none;
  font-size: 60px;
  font-weight: 100;
- /* line-height: 110%; */
+ line-height: 75px;
 }
 
 
 .main-menu-item-link {
- text-decoration: none;
- color: white; 
- text-shadow:
- 0 0 5px rgb(222, 222, 222),
- 0 0 7px rgb(222, 222, 222),
- 0 0 9px rgb(222, 222, 222),
- 0 0 8px rgb(167, 111, 240),
- 0 0 20px rgb(167, 111, 240),
- 0 0 20px rgb(167, 111, 240),
- 0 0 20px rgb(167, 111, 240),
- 0 0 71px rgb(167, 111, 240);
- transition: 0.07s;
- animation: flicker 0.11s infinite alternate;  
-}
-
-
-@keyframes flicker {
-   0%, 18%, 22%, 25%, 53%, 57%, 100% {
-   text-shadow:
-     0 0 9px white,
-     0 0 14px white,
-     0 0 16px white,
-     0 0 20px rgb(167, 111, 240),
-     0 0 32px rgb(167, 111, 240),
-     0 0 32px rgb(167, 111, 240),
-     0 0 42px rgb(167, 111, 240),
-     0 0 101px rgb(167, 111, 240);
- } 
-   20%, 24%, 55% {       
-   text-shadow: 
-     0 0 5px rgb(208, 208, 208),
-     0 0 7px rgb(208, 208, 208),
-     0 0 9px rgb(208, 208, 208),
-     0 0 8px rgb(167, 111, 240),
-     0 0 20px rgb(167, 111, 240),
-     0 0 20px rgb(167, 111, 240),
-     0 0 20px rgb(167, 111, 240),
-     0 0 71px rgb(167, 111, 240);
- } 
-}
-
-
-.main-menu-item-link:hover {
- color: yellow;
- /* font-weight: 300; */
- text-shadow:
- 0 0 7px rgba(222, 222, 222, 0.665),
- 0 0 15px rgb(222, 222, 222),
- 0 0 16px rgb(222, 222, 222),
- 0 0 12px rgb(167, 111, 240),
- 0 0 32px rgb(167, 111, 240),
- 0 0 32px rgb(167, 111, 240),
- 0 0 42px rgb(167, 111, 240),
- 0 0 101px rgb(167, 111, 240);
-}
+  text-decoration: none;
+  color: white; 
+  text-shadow:
+  0 0 5px rgb(222, 222, 222),
+  0 0 7px rgb(222, 222, 222),
+  0 0 9px rgb(222, 222, 222),
+  0 0 8px rgb(167, 111, 240),
+  0 0 20px rgb(167, 111, 240),
+  0 0 20px rgb(167, 111, 240),
+  0 0 20px rgb(167, 111, 240),
+  0 0 71px rgb(167, 111, 240);
+  transition: 0.07s;
+  animation: flicker 0.11s infinite alternate;
+  box-shadow: inset 0 0 0 0 #54b3d61e;
+   color: rgb(222, 222, 222);
+   margin: 0 -.25rem;
+   padding: 0 .25rem;
+   transition: color .25s ease-in-out, box-shadow .25s ease-in-out;
+ }
+ 
+ @keyframes flicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+    text-shadow:
+      0 0 9px white,
+      0 0 14px white,
+      0 0 16px white,
+      0 0 20px rgb(167, 111, 240),
+      0 0 32px rgb(167, 111, 240),
+      0 0 32px rgb(167, 111, 240),
+      0 0 42px rgb(167, 111, 240),
+      0 0 101px rgb(167, 111, 240);
+  } 
+    20%, 24%, 55% {       
+    text-shadow: 
+      0 0 5px rgb(208, 208, 208),
+      0 0 7px rgb(208, 208, 208),
+      0 0 9px rgb(208, 208, 208),
+      0 0 8px rgb(167, 111, 240),
+      0 0 20px rgb(167, 111, 240),
+      0 0 20px rgb(167, 111, 240),
+      0 0 20px rgb(167, 111, 240),
+      0 0 71px rgb(167, 111, 240);
+  } 
+ }
+ 
+ .main-menu-item-link:hover {
+  text-shadow:
+  0 0 7px rgba(222, 222, 222, 0.665),
+  0 0 15px rgb(222, 222, 222),
+  0 0 16px rgb(222, 222, 222),
+  0 0 12px rgb(167, 111, 240),
+  0 0 32px rgb(167, 111, 240),
+  0 0 32px rgb(167, 111, 240),
+  0 0 42px rgb(167, 111, 240),
+  0 0 101px rgb(167, 111, 240);
+  box-shadow: inset 500px 0 0 0 #54b3d61e;
+  color: white;
+ }
 
 /* START GAME */
 
