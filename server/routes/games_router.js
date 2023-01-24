@@ -96,8 +96,6 @@ const createGamesRouter = (collection) => {
         const player_id = ObjectId(req.params.player_id);
         const query = {"winner_id": player_id}
 
-        console.log(player_id);
-
         collection.find(query)
         .toArray()
         .then(data => res.json(data))
