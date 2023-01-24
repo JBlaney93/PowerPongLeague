@@ -319,10 +319,11 @@ select {
 }
 
 .back-to-menu {
+ font-family: 'Exo 2', sans-serif;
  text-decoration: none;
  margin-top: -1%;
  font-weight: 300;
- font-size: 32px;
+ font-size: 22px;
  color: rgb(222, 222, 222); 
  text-shadow:
  0 0 5px rgb(222, 222, 222),

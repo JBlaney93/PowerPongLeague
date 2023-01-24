@@ -36,7 +36,7 @@ const Leaderboard = ({ leaderboard }) => {
                     </tbody>
                 </table>
             </fieldset>
-            <Link className="back-to-menu" to="/">BACK TO MENU</Link>
+            <Link className="back-to-menu" to="/">BACK TO MAIN MENU</Link>
         </div>
     )
 }
