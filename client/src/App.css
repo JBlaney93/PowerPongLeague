@@ -410,7 +410,21 @@ select {
 
  
 .serve {
-  color: green;
+  /* color: green; */
+  font-family: 'Exo 2', sans-serif;
+  font-size: 30px;
+  font-weight: 300;
+  font-style: italic;
+  color: #fff;
+  text-shadow:
+      0 0 7px #00ff3c,
+      0 0 10px #00ff3c,
+      0 0 21px #00ff3c,
+      0 0 42px #00d532,
+      0 0 82px #00d532,
+      0 0 92px #00d532,
+      0 0 102px #2eff5e,
+      0 0 151px #2eff5e;
 }
 
 .noserve {
@@ -454,23 +468,33 @@ button {
   border-radius: 12px;
   background: linear-gradient(
      to left,
-     hsl(340deg 100% 16%) 0%,
-     hsl(340deg 100% 32%) 8%,
-     hsl(340deg 100% 32%) 92%,
-     hsl(340deg 100% 16%) 100%
+     rgb(81, 0, 82) 0%,
+     rgb(86, 2, 107) 8%,
+     rgb(113, 2, 154) 92%,
+     rgb(73, 0, 73) 100%
    );
  }
  
  .front {
   display: block;
   position: relative;
-  padding: 12px 27px;
   border-radius: 12px;
-  font-size: 3rem;
+  font-size: 4rem;
+  padding: 0 30px ;
+  font-weight: 300;
   color: white;
-  background: hsl(345deg 100% 47%);
+  text-shadow:
+  0 0 7px white,
+  0 0 10px #ffffff,
+  0 0 21px #ffffff,
+  0 0 42px #ffffff,
+  0 0 82px #ffffff,
+  0 0 92px #ffffff,
+  0 0 102px #ffffff,
+  0 0 151px #ffffff;
+  background: #db04fcc4;
   will-change: transform;
-  transform: translateY(-4px);
+  transform: translateY(-10px);
   transition: transform
      600ms
      cubic-bezier(.3, .7, .4, 1);
@@ -481,7 +505,7 @@ button {
  }
  
  button:hover .front {
-  transform: translateY(-6px);
+  transform: translateY(-8px);
   transition: transform
      250ms
      cubic-bezier(.3, .7, .4, 1.5);
@@ -633,10 +657,18 @@ button {
   padding: 10px;
 }
 
+
+/* ================================== */
+/* GAME HISTORY */
+.game-history-page {
+  text-align: center;
+}
+
 .game-history-container {
-  background: rgba(255, 255, 255, 0.111);
+  color: white;
   border-radius: 10px;
-  padding: 0 20px;
+  /* background-color: rgba(240, 248, 255, 0.124); */
+  /* text-align: center; */
 }
 
 .game-history-header {
