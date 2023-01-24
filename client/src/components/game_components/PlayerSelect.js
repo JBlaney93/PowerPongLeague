@@ -21,7 +21,7 @@ const PlayerSelect = ({ players, handlePlayerSelect }) => {
                </select>
                <select className="select" defaultValue="" name="player2"
                    onChange={(event) => { handlePlayerSelect(event) }}>
-                   <option value="none">PLAYER 2</option>
+                   <option value="">PLAYER 2</option>
                    {playerSelect}
                </select>
            </div>
