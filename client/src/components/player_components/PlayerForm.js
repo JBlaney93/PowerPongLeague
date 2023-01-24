@@ -48,6 +48,8 @@ const PlayerForm = ({ addToPlayers }) => {
                             onSubmit={handleSubmit}
                             data-testid="save-player-button">
                             <label className="new-player-name">NAME: </label>
+                            <br />
+                            <br />
                             <input
                                 className="new-player-name-field"
                                 value={name}
@@ -55,12 +57,6 @@ const PlayerForm = ({ addToPlayers }) => {
                                 name="name"
                                 data-testid="input-field"
                             />
-                            <br />
-                            <br />
-                            <label className="choose-avatar">Choose an avatar: </label>
-                            <br />
-                            <br />
-                            <p>SELECTION OF AVATAR IMAGES HERE</p>
                             <br />
                             <br />
                             <button className="confirm-button">CREATE</button>
