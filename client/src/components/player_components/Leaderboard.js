@@ -33,7 +33,7 @@ const Leaderboard = ({ leaderboard }) => {
                         <td className="table-head">WEIGHTED SCORE</td>
                     </tr>
                     {table}
-                    <tbody>
+                    </tbody>
                 </table>
             </fieldset>
             <Link className="back-to-menu" to="/">BACK TO MENU</Link>

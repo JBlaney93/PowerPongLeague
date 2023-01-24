@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-
 const PlayerSelect = ({ players, handlePlayerSelect }) => {
 
    const playerSelect = players.map((player, index) => {
