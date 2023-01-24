@@ -6,8 +6,9 @@ const GameItem = ({ game, index }) => {
     // console.log(game);
 
     const dateTime = new Date (game.datetime)
-    const dateTimeFormat = dateTime.toDateString()
+    // const dateTimeFormat = dateTime.toDateString()
     const day = dateTime.getDay()
+    const timeString = dateTime.toLocaleTimeString()
     const month = dateTime.getMonth() + 1
     const year = dateTime.getFullYear()
     
@@ -28,11 +29,13 @@ const GameItem = ({ game, index }) => {
     }, [game])
 
     return(
-        <div>
-            <p>WINNER: {winner.name} - Score: {game.w_score}</p>
+        <div className="player-names-div">
+            <p className="game-history-p1"><span className="player-score-text">{winner.name} {game.w_score}  -  {game.l_score} {loser.name}</span></p>
+            <p className="game-history-p2"> {day} / {month} / {year}{timeString}</p>
+            {/* <p>WINNER: {winner.name} - Score: {game.w_score}</p>
             <p>LOSER: {loser.name} - Score {game.l_score}</p>
-            <p>{dateTimeFormat}</p>
             <p>{day} / {month} / {year}</p>
+            <p>{timeString}</p> */}
         </div>
     )
 }

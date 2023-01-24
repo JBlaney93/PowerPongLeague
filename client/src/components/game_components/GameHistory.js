@@ -18,11 +18,17 @@ const GameHistory = ({ gameHistory }) => {
 
    return(
            <div>
-               <p>GAME HISTORY HERE</p>
-               <ul>
-                   {gameList}
-               </ul>
-               <Link className ="back-to-menu" to="/">BACK TO MAIN MENU</Link>
+                <div className="game-history-container">
+                    <p className="game-history-header">RECENTLY PLAYED</p>
+                    <div className="winner-loser-div">
+                        <p className="winner-text">WINNER</p>
+                        <p className="loser-text">LOSER</p>
+                    </div>
+                        <ul>
+                            {gameList}
+                        </ul>
+                </div>
+                <Link className ="back-to-menu" to="/">BACK TO MAIN MENU</Link>
            </div>
    )
 }
