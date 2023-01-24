@@ -603,3 +603,10 @@ button {
   font-weight: 600;
   padding: 10px;
 }
+
+.win-screen-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}

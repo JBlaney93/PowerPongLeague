@@ -33,24 +33,24 @@ const GameForm = ({ addToGameHistory, players }) => {
 
     const handleWin = (player, w_score, l_score) => {
         if (player === "player1") {
-            const endGame = {
+            const newEndGame = {
                 datetime: new Date(),
                 winner_id: gamePlayers.player1._id,
                 loser_id: gamePlayers.player2._id,
                 w_score: w_score,
                 l_score: l_score
             }
-            setEndGame(endGame);
+            setEndGame(newEndGame);
             setGameWon(true);
         } else if (player === 'player2') {
-            const endGame = {
+            const newEndGame = {
                 datetime: new Date(),
                 winner_id: gamePlayers.player2._id,
                 loser_id: gamePlayers.player1._id,
                 w_score: w_score,
                 l_score: l_score
             }
-            setEndGame(endGame);
+            setEndGame(newEndGame);
             setGameWon(true);
         }
     }
@@ -76,6 +76,13 @@ const GameForm = ({ addToGameHistory, players }) => {
         addToGameHistory(endGame);
     }
 
+    const handleReset = () => {
+        setGameWon(false);
+        setPlayersSelected(false);
+        setPlayersConfirmed(false);
+
+    }
+
 
     const handleConfirm = () => {
         if (!playersSelected) {
@@ -95,7 +102,11 @@ const GameForm = ({ addToGameHistory, players }) => {
                 <div className="player-select">
                     <fieldset className="player-select-form">
                         <legend className="select-to-proceed">SELECT TWO PLAYERS TO PROCEED:</legend>
-                        <PlayerSelect players={players} handlePlayerSelect={handlePlayerSelect} gamePlayers={gamePlayers} />
+                        <PlayerSelect
+                        players={players}
+                        handlePlayerSelect={handlePlayerSelect}
+                        gamePlayers={gamePlayers}
+                        />
                         <button className={playersSelected ? "confirm-button" : "inactive-confirm-button"} onClick={handleConfirm}>CONFIRM</button>
                         {errSamePlayer?<p>{errSamePlayer}</p>:null}
                     </fieldset>
@@ -105,13 +116,21 @@ const GameForm = ({ addToGameHistory, players }) => {
 
             {playersConfirmed && !gameWon ?
                 <div className="counters">
-                    <Counters handleWin={handleWin} player1={gamePlayers.player1.name} player2={gamePlayers.player2.name} />
+                    <Counters
+                    handleWin={handleWin}
+                    player1={gamePlayers.player1.name}
+                    player2={gamePlayers.player2.name}
+                    />
                 </div>
                 : null}
 
 
             {gameWon ?
-                <WinScreen handleSaveGame={handleSaveGame} endGame={endGame} />
+                <WinScreen
+                handleSaveGame={handleSaveGame}
+                endGame={endGame}
+                handleReset={handleReset}
+                />
                 : null}
 
 

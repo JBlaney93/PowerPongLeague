@@ -44,7 +44,6 @@ const createGamesRouter = (collection) => {
             winner_id: ObjectId(req.body.winner_id),
             loser_id: ObjectId(req.body.loser_id)
         }
-        console.log(newGame.winner_id, req.body.winner_id);
 
         collection
         .insertOne(newGame)
