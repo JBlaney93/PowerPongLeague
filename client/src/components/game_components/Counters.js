@@ -27,22 +27,26 @@ const Counters = ({handleWin, player1, player2}) => {
             handleWin('player2', counterObj.c2, counterObj.c1);
         } 
         //  eslint-disable-next-line
-
     }, [counterObj])
 
     return (
-        <div>
-            <p>{player1}</p>
-            <button
-                onClick={() => { increment('c1') }}
-                className={serve}>{counterObj.c1}
-            </button>
-            <p>{player2}</p>
-            <button
-                onClick={() => { increment('c2') }}
-                data-testid="counter-button"
-                className={serve === 'noserve' ? 'serve' : 'noserve'}>{counterObj.c2}
-            </button>
+        <div className="buttons-container">
+            <div>
+                <p>{player1}</p>
+                <button
+                    onClick={() => { increment('c1') }}
+                    className={serve}>{counterObj.c1}
+                </button>
+            </div>
+            <h1>VS</h1>
+            <div>
+                <p>{player2}</p>
+                <button
+                    onClick={() => { increment('c2') }}
+                    data-testid="counter-button"
+                    className={serve === 'noserve' ? 'serve' : 'noserve'}>{counterObj.c2}
+                </button>
+            </div>
         </div>
     )
 }

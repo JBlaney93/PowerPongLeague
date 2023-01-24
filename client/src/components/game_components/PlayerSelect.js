@@ -12,17 +12,19 @@ const PlayerSelect = ({ players, handlePlayerSelect }) => {
 
 
    return (
-       <div className="character-dropdowns">
-           <select className="select" defaultValue="" name="player1"
-               onChange={(event) => { handlePlayerSelect(event) }}>
-               <option value="">PLAYER 1</option>
-               {playerSelect}
-           </select>
-           <select className="select" defaultValue="" name="player2"
-               onChange={(event) => { handlePlayerSelect(event) }}>
-               <option value="none">PLAYER 2</option>
-               {playerSelect}
-           </select>
+       <div className="character-dropdown-container">
+           <div className="character-dropdowns">
+               <select className="select" defaultValue="" name="player1"
+                   onChange={(event) => { handlePlayerSelect(event) }}>
+                   <option value="">PLAYER 1</option>
+                   {playerSelect}
+               </select>
+               <select className="select" defaultValue="" name="player2"
+                   onChange={(event) => { handlePlayerSelect(event) }}>
+                   <option value="none">PLAYER 2</option>
+                   {playerSelect}
+               </select>
+           </div>
        </div>
    )
 }
