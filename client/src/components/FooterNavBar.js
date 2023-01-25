@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const FooterNavBar = () => {
     return(
         <div className="back-to-link-container">

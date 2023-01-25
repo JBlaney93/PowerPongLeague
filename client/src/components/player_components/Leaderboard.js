@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import FooterNavBar from "../FooterNavBar";
 import TableRow from "./TableRow";
 
 const Leaderboard = ({ leaderboard }) => {
@@ -36,7 +37,7 @@ const Leaderboard = ({ leaderboard }) => {
                     </tbody>
                 </table>
             </fieldset>
-            <Link className="back-to-menu" to="/">BACK TO MAIN MENU</Link>
+            <FooterNavBar/>
         </div>
     )
 }

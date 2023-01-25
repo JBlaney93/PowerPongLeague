@@ -1,9 +1,9 @@
-import { Link } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import PlayerSelect from "./PlayerSelect";
 import PlayerService from "../../services/PlayerService";
 import Counters from "./Counters";
 import WinScreen from "./WinScreen";
+import FooterNavBar from "../FooterNavBar";
 
 const GameForm = ({ addToGameHistory, players }) => {
 
@@ -132,22 +132,9 @@ const GameForm = ({ addToGameHistory, players }) => {
                 handleReset={handleReset}
                 />
                 : null}
-
-
-
-            <div className="back-to-link-container">
-                <Link
-                    className="back-to-menu"
-                    to="/">
-                    BACK TO MAIN MENU</Link>
-                <Link
-                    className="back-to-menu"
-                    to="/game-history">
-                    RECENT GAMES</Link>
-            </div>
+        <FooterNavBar/>
         </div>
     )
 }
-
 
 export default GameForm;
