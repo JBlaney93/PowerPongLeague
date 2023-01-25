@@ -45,7 +45,7 @@ const createPlayersRouter = (collection) => {
         .toArray()
         .then(result => {
 
-            // if name exists, reject it
+            // if name doesn't already exist, add to collection
 
             if (result.length === 0) {
                 collection

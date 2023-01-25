@@ -3,19 +3,14 @@ import PlayerService from "../../services/PlayerService";
 
 const GameItem = ({ game, index }) => {
 
-    // console.log(game);
-
-    const dateTime = new Date (game.datetime)
-    // const dateTimeFormat = dateTime.toDateString()
-    const day = dateTime.getDay()
-    const timeString = dateTime.toLocaleTimeString()
-    const month = dateTime.getMonth() + 1
-    const year = dateTime.getFullYear()
+    const dateTime = new Date (game.datetime);
+    const day = dateTime.getDay();
+    const timeString = dateTime.toLocaleTimeString();
+    const month = dateTime.getMonth() + 1;
+    const year = dateTime.getFullYear();
     
     const [winner, setWinner] = useState({name: ""});
     const [loser, setLoser] = useState({name: ""});
-
-    // console.log(winner.name, loser.name);
 
     useEffect(()=> {
 
@@ -33,7 +28,7 @@ const GameItem = ({ game, index }) => {
             <p className="game-history-p1"><span className="player-score-text">{winner.name} {game.w_score}  -  {game.l_score} {loser.name}</span></p>
             <p className="game-history-p2"> {day} / {month} / {year} | {timeString}</p>
         </div>
-    )
+    );
 }
 
 export default GameItem;

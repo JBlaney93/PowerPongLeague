@@ -2,7 +2,6 @@ import GameItem from "../game_components/GameItem"
 import React from "react";
 import FooterNavBar from "../FooterNavBar";
 
-
 const GameHistory = ({ gameHistory }) => {
 
     const gameList = gameHistory.slice(0).reverse().map((game, index) => {
@@ -10,7 +9,7 @@ const GameHistory = ({ gameHistory }) => {
             game={game}
             key={index}
         />
-    })
+    });
 
     return (
         <div className="game-history-page">
@@ -28,6 +27,5 @@ const GameHistory = ({ gameHistory }) => {
         </div>
     )
 }
-
 
 export default GameHistory;

@@ -50,7 +50,7 @@ async function run () {
 
         await games.insertMany(gamesWithPlayerIDs);
 
-        // display inserted games
+        // display inserted games and players
         const insertedGames = await games.find().toArray();
         console.log(insertedGames);
         console.log(insertedPlayers);

@@ -15,10 +15,9 @@ const Counters = ({handleWin, player1, player2}) => {
     }
 
     const [serveTracker, setServeTracker] = useState(0);
-    const serve = (serveTracker-1) % 4 < 2 ? 'serve' : 'noserve';
+    const serve = serveTracker % 4 < 2 ? 'serve' : 'noserve';
 
     useEffect(() => {
-
         setServeTracker(counterObj.c1 + counterObj.c2);
 
         if (counterObj.c1 >= 11 && counterObj.c1 -2 >= counterObj.c2) {
@@ -55,8 +54,7 @@ const Counters = ({handleWin, player1, player2}) => {
                         <span className="front text">{counterObj.c2}</span>
                 </button>
                 <p className={serve === 'noserve' ? 'serve' : 'noserve'}>SERVE</p>
-            </div>
-            
+            </div>  
         </div>
     )
 }
