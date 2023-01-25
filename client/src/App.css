@@ -568,8 +568,6 @@ button {
  flex-direction: row;
  justify-content: center;
  align-items: center;
- margin-left: 20px;
- margin-right: 20px;
  border-style: solid;
  border-radius: 20px;
  height: 15%;
