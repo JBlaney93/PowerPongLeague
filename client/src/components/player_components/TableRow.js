@@ -1,7 +1,5 @@
 const TableRow = ({index, player}) => {
 
-    
-
     const win_percent = (player.win_percentage*100).toFixed(2);
 
     return(
@@ -14,7 +12,7 @@ const TableRow = ({index, player}) => {
             <td>{win_percent}%</td>
             <td>{player.weighted_score}</td>
         </tr>
-    )
+    );
 }
 
 export default TableRow;

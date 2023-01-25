@@ -1,8 +1,7 @@
 const express = require('express');
-const { ObjectId } = require('mongodb');
 const PlayerStats = require('../db/player_stats')
 
-const CreateLeaderboardRouter = (playersCollection, gamesCollection) => {
+const createLeaderboardRouter = (playersCollection, gamesCollection) => {
 
     const router = express.Router();
 
@@ -19,4 +18,4 @@ const CreateLeaderboardRouter = (playersCollection, gamesCollection) => {
     return router;
 }
 
-module.exports = CreateLeaderboardRouter;
+module.exports = createLeaderboardRouter;

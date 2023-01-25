@@ -1,5 +1,5 @@
 import {render, fireEvent, waitFor} from '@testing-library/react';
-import PlayerForm from '../components/PlayerForm';
+import PlayerForm from '../components/player_components/PlayerForm';
 import { BrowserRouter } from 'react-router-dom';
 
 describe('PlayerForm ', () => {

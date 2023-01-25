@@ -1,10 +1,10 @@
 import React from 'react';
 
-const PlayerList = ({players}) => {
+const PlayerList = ({ players }) => {
 
-    const playerList = players.map((player, index)=>{
-        return <li key={index}>{player.name}</li>
-    })
+  const playerList = players.map((player, index) => {
+    return <li key={index}>{player.name}</li>
+  })
 
   return (
     <fieldset className='new-player-profile-form'>

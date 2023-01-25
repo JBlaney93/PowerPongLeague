@@ -4,7 +4,7 @@ const PlayerForm = ({ addToPlayers }) => {
 
     const [name, setName] = useState("");
     const handleChange = (event) => {
-        setName(event.target.value)
+        setName(event.target.value);
     };
 
     const [error, setError] = useState("");
@@ -12,14 +12,13 @@ const PlayerForm = ({ addToPlayers }) => {
 
 
     const handleSubmit = (event) => {
-
         event.preventDefault();
         if (!name) {
             setError("Please enter a name");
             return;
         }
-        const newPlayer = { name: name }
-        addToPlayers(newPlayer)
+        const newPlayer = { name: name };
+        addToPlayers(newPlayer);
         setProfileCreated(true);
         setName("")
     }
@@ -30,7 +29,7 @@ const PlayerForm = ({ addToPlayers }) => {
                 <fieldset className="player-profile-form">
                     <legend className="new-player-profile-heading">NEW PLAYER PROFILE</legend>
                     {error && <p style={{ color: 'red' }}>{error}</p>}
-                    {!profileCreated? (<form className=""
+                    {!profileCreated ? (<form className=""
                         onSubmit={handleSubmit}
                         data-testid="save-player-button">
                         <input
@@ -41,12 +40,12 @@ const PlayerForm = ({ addToPlayers }) => {
                             data-testid="input-field"
                             placeholder='player-name'
                         />
-                        <br/>
+                        <br />
                         <button className="confirm-button">CREATE</button>
-                    </form>):(
+                    </form>) : (
                         <div>
                             <p style={{ color: "green" }}>Profile created</p>
-                            <button onClick={()=>{setProfileCreated(false)}}className='confirm-button'>Add another player?</button>
+                            <button onClick={() => { setProfileCreated(false) }} className='confirm-button'>Add another player?</button>
                         </div>
                     )}
                 </fieldset>

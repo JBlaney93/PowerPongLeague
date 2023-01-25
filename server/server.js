@@ -11,7 +11,7 @@ app.use(cors());
 
 const createPlayersRouter = require('./routes/players_router.js');
 const createGamesRouter = require('./routes/games_router.js');
-const CreateLeaderboardRouter = require('./routes/leaderboard_router')
+const createLeaderboardRouter = require('./routes/leaderboard_router')
 
 // connect to database
 
@@ -29,7 +29,7 @@ MongoClient.connect('mongodb://127.0.0.1:27017', {useUnifiedTopology:true})
 
     const playersRouter = createPlayersRouter(playersCollection);
     const gamesRouter = createGamesRouter(gamesCollection);
-    const leaderboardRouter = CreateLeaderboardRouter(playersCollection, gamesCollection);
+    const leaderboardRouter = createLeaderboardRouter(playersCollection, gamesCollection);
 
     app.use('/api/players', playersRouter);
     app.use('/api/games', gamesRouter);

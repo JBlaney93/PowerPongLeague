@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import FooterNavBar from "../FooterNavBar";
 import TableRow from "./TableRow";
 
@@ -24,20 +23,20 @@ const Leaderboard = ({ leaderboard }) => {
                 <legend className="leaderboard-heading">LEADERBOARD</legend>
                 <table>
                     <tbody>
-                    <tr>
-                        <td className="table-head">POSITION</td>
-                        <td className="table-head">NAME</td>
-                        <td className="table-head">WINS</td>
-                        <td className="table-head">LOSSES</td>
-                        <td className="table-head">TOTAL GAMES</td>
-                        <td className="table-head">WIN PERCENTAGE</td>
-                        <td className="table-head">WEIGHTED SCORE</td>
-                    </tr>
-                    {table}
+                        <tr>
+                            <td className="table-head">POSITION</td>
+                            <td className="table-head">NAME</td>
+                            <td className="table-head">WINS</td>
+                            <td className="table-head">LOSSES</td>
+                            <td className="table-head">TOTAL GAMES</td>
+                            <td className="table-head">WIN PERCENTAGE</td>
+                            <td className="table-head">WEIGHTED SCORE</td>
+                        </tr>
+                        {table}
                     </tbody>
                 </table>
             </fieldset>
-            <FooterNavBar/>
+            <FooterNavBar />
         </div>
     )
 }

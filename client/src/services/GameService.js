@@ -23,13 +23,13 @@ const GameService = {
         .then(res => res.json());
     },
 
-    byWinner (player_id) {
-        return fetch(baseURL + "bywinner/" + player_id)
-    },
+    // byWinner (player_id) {
+    //     return fetch(baseURL + "bywinner/" + player_id)
+    // },
 
-    byLoser (player_id) {
-        return fetch(baseURL + "byloser/" + player_id)
-    }
+    // byLoser (player_id) {
+    //     return fetch(baseURL + "byloser/" + player_id)
+    // }
  
 }
 

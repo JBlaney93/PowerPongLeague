@@ -1,5 +1,5 @@
 import {render, fireEvent, waitFor} from '@testing-library/react';
-import GameForm from '../components/GameForm';
+import GameForm from '../components/game_components/GameForm';
 import { BrowserRouter } from 'react-router-dom';
 
 describe('GameForm ', () => {
