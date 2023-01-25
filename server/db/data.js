@@ -4,7 +4,7 @@ const playersData = [
     {name: "Kyle"},
     {name: "Kelsie"},
     {name: "Boag"},
-    {name: "Josh Mackie"},
+    {name: "Mackie"},
     {name: "Séamus"},
     {name: "Blaney"},
     {name: "Jill"},
@@ -26,7 +26,7 @@ const gamesData = [
         w_score: 11,
         l_score: 9,
         winner_id: null,
-        winner_name: "James Blaney",
+        winner_name: "Blaney",
         loser_id: null,
         loser_name: "Séamus"
     },
@@ -62,7 +62,7 @@ const gamesData = [
         w_score: 14,
         l_score: 12,
         winner_id: null,
-        winner_name: "James Blaney",
+        winner_name: "Blaney",
         loser_id: null,
         loser_name: "Lee"
     }
