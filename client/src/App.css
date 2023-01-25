@@ -385,9 +385,11 @@ select {
 /* GAME OVER */
 
 .game-over {
+  font-family: 'Genos', sans-serif;
   font-size: 4rem;
-  font-weight: 300;
+  font-weight: 700;
   color: red; 
+  text-shadow: 3px 3px black;
 }
 
 /* =================== */
@@ -749,3 +751,8 @@ button {
   align-items: center;
 }
 
+.result {
+  font-size: 60px;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
