@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import VS from '../../images/VS.png';
 
 const Counters = ({handleWin, player1, player2}) => {
 
@@ -43,7 +44,7 @@ const Counters = ({handleWin, player1, player2}) => {
                 </button>
                 <p className={serve}>SERVE</p>
             </div>
-            <h1>VS</h1>
+            <img className="VS" src={VS} alt={"VS"}/>
             <div>
                 <p className="player-name">{player2}</p>
                 <button
