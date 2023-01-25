@@ -8,9 +8,8 @@ const PlayerStats = (payload) => {
         player.wins = 0;
         player.losses = 0;
         player.total_games = 0;
-        player.win_percentage = "na"
-        player.weighted_score = "na"
-
+        player.win_percentage = 0
+        player.weighted_score = 0
 
         for (let game of games) {
             if (game.winner_id.equals(player._id)) {
@@ -22,6 +21,7 @@ const PlayerStats = (payload) => {
                 player.total_games += 1;
             }
         }
+        
         if (player.total_games > 0) {
             player.win_percentage = player.wins/player.total_games;
             player.weighted_score = player.win_percentage*(player.total_games/2);

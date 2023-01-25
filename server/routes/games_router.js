@@ -90,37 +90,37 @@ const createGamesRouter = (collection) => {
 
     // get all wins for a specific player
 
-    router.get('/bywinner/:player_id', (req, res) => {
+    // router.get('/bywinner/:player_id', (req, res) => {
 
-        const player_id = ObjectId(req.params.player_id);
-        const query = {"winner_id": player_id}
+    //     const player_id = ObjectId(req.params.player_id);
+    //     const query = {"winner_id": player_id}
 
-        collection.find(query)
-        .toArray()
-        .then(data => res.json(data))
-        .catch(err => {
-            console.error(err);
-            res.status(500);
-            res.json({status: 500, error: err})
-        });
-    });
+    //     collection.find(query)
+    //     .toArray()
+    //     .then(data => res.json(data))
+    //     .catch(err => {
+    //         console.error(err);
+    //         res.status(500);
+    //         res.json({status: 500, error: err})
+    //     });
+    // });
 
-    // get all losses for a specific player
+    // // get all losses for a specific player
 
-    router.get('/byloser/:player_id', (req, res) => {
+    // router.get('/byloser/:player_id', (req, res) => {
 
-        const player_id = ObjectId(req.params.player_id);
-        const query = {"loser_id": player_id}
+    //     const player_id = ObjectId(req.params.player_id);
+    //     const query = {"loser_id": player_id}
 
-        collection.find(query)
-        .toArray()
-        .then(data => res.json(data))
-        .catch(err => {
-            console.error(err);
-            res.status(500);
-            res.json({status: 500, error: err})
-        });
-    });
+    //     collection.find(query)
+    //     .toArray()
+    //     .then(data => res.json(data))
+    //     .catch(err => {
+    //         console.error(err);
+    //         res.status(500);
+    //         res.json({status: 500, error: err})
+    //     });
+    // });
     
     // return all games played by two specific players against each other
 

@@ -12,13 +12,13 @@ const GameForm = ({ addToGameHistory, players }) => {
     const [playersConfirmed, setPlayersConfirmed] = useState(false);
     const [errSamePlayer, setErrSamePlayer] = useState(false)
     const [gameWon, setGameWon] = useState(false);
+
     const [endGame, setEndGame] = useState({})
 
     const [gamePlayers, setGamePlayers] = useState({
         player1: false,
         player2: false,
     })
-
 
     const handlePlayerSelect = (event) => {
         const player = event.target.name
@@ -29,7 +29,6 @@ const GameForm = ({ addToGameHistory, players }) => {
             .then(obj => temp[player] = obj)
             .then(() => setGamePlayers(temp))
     }
-
 
     const handleWin = (player, w_score, l_score) => {
         if (player === "player1") {
@@ -55,7 +54,6 @@ const GameForm = ({ addToGameHistory, players }) => {
         }
     }
 
-
     useEffect(() => {
         if (gamePlayers.player1 && gamePlayers.player2) {
 
@@ -67,7 +65,6 @@ const GameForm = ({ addToGameHistory, players }) => {
             }
         }
     }, [gamePlayers])
-
 
     const handleSaveGame = () => {
         if (!gameWon) {
@@ -83,18 +80,13 @@ const GameForm = ({ addToGameHistory, players }) => {
 
     }
 
-
     const handleConfirm = () => {
         if (!playersSelected) {
             return;
-        } else if (gamePlayers.player1 === gamePlayers.player2) {
-            
         } else {
             setPlayersConfirmed(true);
-
         }
     }
-
 
     return (
         <div className="main-menu-container">
@@ -107,7 +99,11 @@ const GameForm = ({ addToGameHistory, players }) => {
                         handlePlayerSelect={handlePlayerSelect}
                         gamePlayers={gamePlayers}
                         />
-                        <button className={playersSelected ? "confirm-button" : "inactive-confirm-button"} onClick={handleConfirm}>CONFIRM</button>
+                        <button 
+                        className={playersSelected ? "confirm-button" : "inactive-confirm-button"}
+                        onClick={handleConfirm}>
+                            CONFIRM
+                        </button>
                         {errSamePlayer?<p>{errSamePlayer}</p>:null}
                     </fieldset>
                 </div>
