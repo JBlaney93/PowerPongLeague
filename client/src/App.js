@@ -8,8 +8,10 @@ import logo2 from './images/League.png';
 function App() {
   return (
     <div className="container">
-      <img className="powerpong-logo" src={logo1} alt={"PowerPong"}/>
-      <img className="league-logo" src={logo2} alt={"League"}/>
+      <div className='image-container'>
+        <img className="powerpong-logo" src={logo1} alt={"PowerPong"}/>
+        <img className="league-logo" src={logo2} alt={"League"}/>
+      </div>
       <MainContainer />
     </div>
   );

@@ -1,9 +1,7 @@
-import { Link } from "react-router-dom";
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 
-const PlayerForm = ({addToPlayers}) => {
+const PlayerForm = ({ addToPlayers }) => {
 
-    console.log(addToPlayers)
     const [name, setName] = useState("");
     const handleChange = (event) => {
         setName(event.target.value)
@@ -12,64 +10,48 @@ const PlayerForm = ({addToPlayers}) => {
     const [error, setError] = useState("");
     const [profileCreated, setProfileCreated] = useState(false);
 
-    
+
     const handleSubmit = (event) => {
 
         event.preventDefault();
-
         if (!name) {
-            setError("Name cannot be empty!");
+            setError("Please enter a name");
             return;
         }
-        
-        const newPlayer = {name:name}
+        const newPlayer = { name: name }
         addToPlayers(newPlayer)
         setProfileCreated(true);
-
         setName("")
     }
 
-    return(
-        <div>
-        {profileCreated ? (
+    return (
+        <div className="player-form">
             <div>
-                <p style={{ color: "green" }}>Profile created</p>
-                <br />
-                <Link to="/game-form">Start Game</Link>
-                <br />
-                <Link to="/">Back to menu</Link>
-            </div>
-        ) : (
-            <div>
-                <h2 className="new-player-profile">NEW PLAYER PROFILE</h2>
-                <br />
-                {error && <p style={{ color: 'red' }}>{error}</p>}
-                <form className="new-player-profile-form"
-                    onSubmit={handleSubmit} 
-                    data-testid="save-player-button">
-                        <label className="new-player-name">NAME: </label>
+                <fieldset className="player-profile-form">
+                    <legend className="new-player-profile-heading">NEW PLAYER PROFILE</legend>
+                    {error && <p style={{ color: 'red' }}>{error}</p>}
+                    {!profileCreated? (<form className=""
+                        onSubmit={handleSubmit}
+                        data-testid="save-player-button">
                         <input
                             className="new-player-name-field"
                             value={name}
                             onChange={handleChange}
                             name="name"
                             data-testid="input-field"
+                            placeholder='player-name'
                         />
-                    <br />
-                    <br />
-                    <label className="choose-avatar">Choose an avatar: </label>
-                    <br />
-                    <br />
-                    <p>SELECTION OF AVATAR IMAGES HERE</p>
-                    <br />
-                    <br />
-                    <button className="create-player-profile">CREATE</button>
-                    <br />
-                    <Link to="/">Back to menu</Link>
-                </form>
+                        <br/>
+                        <button className="confirm-button">CREATE</button>
+                    </form>):(
+                        <div>
+                            <p style={{ color: "green" }}>Profile created</p>
+                            <button onClick={()=>{setProfileCreated(false)}}className='confirm-button'>Add another player?</button>
+                        </div>
+                    )}
+                </fieldset>
             </div>
-        )}
-    </div>
+        </div>
     )
 };
 

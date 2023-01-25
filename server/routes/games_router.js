@@ -41,10 +41,9 @@ const createGamesRouter = (collection) => {
             datetime: req.body.datetime,
             w_score: req.body.w_score,
             l_score: req.body.l_score,
-            winner_id: ObjectId(req.body.winner),
-            loser_id: ObjectId(req.body.loser)
+            winner_id: ObjectId(req.body.winner_id),
+            loser_id: ObjectId(req.body.loser_id)
         }
-        console.log(newGame.winner_id, req.body.winner_id);
 
         collection
         .insertOne(newGame)
@@ -89,11 +88,41 @@ const createGamesRouter = (collection) => {
         });
     });
 
-    // return games in chronological order
+    // get all wins for a specific player
 
+    router.get('/bywinner/:player_id', (req, res) => {
+
+        const player_id = ObjectId(req.params.player_id);
+        const query = {"winner_id": player_id}
+
+        collection.find(query)
+        .toArray()
+        .then(data => res.json(data))
+        .catch(err => {
+            console.error(err);
+            res.status(500);
+            res.json({status: 500, error: err})
+        });
+    });
+
+    // get all losses for a specific player
+
+    router.get('/byloser/:player_id', (req, res) => {
+
+        const player_id = ObjectId(req.params.player_id);
+        const query = {"loser_id": player_id}
+
+        collection.find(query)
+        .toArray()
+        .then(data => res.json(data))
+        .catch(err => {
+            console.error(err);
+            res.status(500);
+            res.json({status: 500, error: err})
+        });
+    });
+    
     // return all games played by two specific players against each other
-
-    // get all games for a specific player
 
     // get win percentage for a specific player
 

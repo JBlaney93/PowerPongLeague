@@ -7,12 +7,12 @@ const PlayerList = ({players}) => {
     })
 
   return (
-    <div>
-      <h2>Player List</h2>
+    <fieldset className='new-player-profile-form'>
+      <legend className="new-player-profile-heading">Players</legend>
       <ul>
         {playerList}
       </ul>
-    </div>
+    </fieldset>
   );
 };
 

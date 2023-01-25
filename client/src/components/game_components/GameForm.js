@@ -1,103 +1,138 @@
-import { Link } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import PlayerSelect from "./PlayerSelect";
 import PlayerService from "../../services/PlayerService";
 import Counters from "./Counters";
 import WinScreen from "./WinScreen";
+import FooterNavBar from "../FooterNavBar";
 
 const GameForm = ({ addToGameHistory, players }) => {
 
     // stages for displaying items
-
     const [playersSelected, setPlayersSelected] = useState(false);
     const [playersConfirmed, setPlayersConfirmed] = useState(false);
+    const [errSamePlayer, setErrSamePlayer] = useState(false)
     const [gameWon, setGameWon] = useState(false);
-
     const [endGame, setEndGame] = useState({})
+
     const [gamePlayers, setGamePlayers] = useState({
         player1: false,
         player2: false,
     })
 
+
     const handlePlayerSelect = (event) => {
         const player = event.target.name
-        const temp = {...gamePlayers}
-        
+        const temp = { ...gamePlayers }
+
+
         PlayerService.findPlayer(event.target.value)
-        .then(obj => temp[player] = obj)
-        .then(setGamePlayers(temp))
+            .then(obj => temp[player] = obj)
+            .then(() => setGamePlayers(temp))
     }
+
 
     const handleWin = (player, w_score, l_score) => {
         if (player === "player1") {
-            const endGame = {
+            const newEndGame = {
                 datetime: new Date(),
-                winner: gamePlayers.player1._id,
-                loser: gamePlayers.player2._id,
+                winner_id: gamePlayers.player1._id,
+                loser_id: gamePlayers.player2._id,
                 w_score: w_score,
                 l_score: l_score
             }
-            setEndGame(endGame);
+            setEndGame(newEndGame);
             setGameWon(true);
         } else if (player === 'player2') {
-            const endGame = {
+            const newEndGame = {
                 datetime: new Date(),
-                winner: gamePlayers.player2._id,
-                loser: gamePlayers.player1._id,
+                winner_id: gamePlayers.player2._id,
+                loser_id: gamePlayers.player1._id,
                 w_score: w_score,
                 l_score: l_score
             }
-            setEndGame(endGame);
+            setEndGame(newEndGame);
             setGameWon(true);
         }
     }
 
-    useEffect(()=>{
+
+    useEffect(() => {
         if (gamePlayers.player1 && gamePlayers.player2) {
-            setPlayersSelected(true)
+
+            if (gamePlayers.player1.name !== gamePlayers.player2.name) {
+                setErrSamePlayer(false);
+                setPlayersSelected(true);
+            } else {
+                setErrSamePlayer("sorry, you can't choose the same player in both slots")
+            }
         }
     }, [gamePlayers])
-    
+
+
     const handleSaveGame = () => {
         if (!gameWon) {
             return;
         }
         addToGameHistory(endGame);
     }
-    
+
+    const handleReset = () => {
+        setGameWon(false);
+        setPlayersSelected(false);
+        setPlayersConfirmed(false);
+
+    }
+
+
     const handleConfirm = () => {
         if (!playersSelected) {
             return;
+        } else if (gamePlayers.player1 === gamePlayers.player2) {
+            
+        } else {
+            setPlayersConfirmed(true);
+
         }
-        setPlayersConfirmed(true);
     }
 
-    return(
-        <div>
-            {!playersConfirmed?
-            <div className="player-select">
-                <p className="select-to-proceed">Select two players to proceed:</p>
-                <PlayerSelect players={players} handlePlayerSelect={handlePlayerSelect} gamePlayers={gamePlayers}/>
-                <button onClick={handleConfirm}>confirm selection</button>
-            </div>
-            :null}
 
-            {playersConfirmed && !gameWon?
-            <div className="counters">
-                <p>Log your score here!</p>
-                <Counters handleWin={handleWin} player1={gamePlayers.player1.name} player2={gamePlayers.player2.name}/>
-            </div>
-            :null}
+    return (
+        <div className="main-menu-container">
+            {!playersConfirmed ?
+                <div className="player-select">
+                    <fieldset className="player-select-form">
+                        <legend className="select-to-proceed">SELECT TWO PLAYERS TO PROCEED:</legend>
+                        <PlayerSelect
+                        players={players}
+                        handlePlayerSelect={handlePlayerSelect}
+                        gamePlayers={gamePlayers}
+                        />
+                        <button className={playersSelected ? "confirm-button" : "inactive-confirm-button"} onClick={handleConfirm}>CONFIRM</button>
+                        {errSamePlayer?<p>{errSamePlayer}</p>:null}
+                    </fieldset>
+                </div>
+                : null}
 
-            {gameWon?
-                <WinScreen handleSaveGame={handleSaveGame}/>
-            :null}
 
-            <Link to="/">back to menu</Link>
-            <Link to="/game-history">recent games</Link>
-            {gameWon?
-            <Link to="/game-form">play again</Link>
-            :null}
+            {playersConfirmed && !gameWon ?
+                <div className="counters">
+                    <Counters
+                    handleWin={handleWin}
+                    player1={gamePlayers.player1.name}
+                    player2={gamePlayers.player2.name}
+                    />
+                </div>
+                : null}
+
+
+            {gameWon ?
+                <WinScreen
+                handleSaveGame={handleSaveGame}
+                endGame={endGame}
+                handleReset={handleReset}
+                />
+                : null}
+        <FooterNavBar/>
         </div>
     )
 }

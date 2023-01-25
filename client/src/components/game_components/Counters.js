@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import VS from '../../images/VS.png';
 
 const Counters = ({handleWin, player1, player2}) => {
 
@@ -27,22 +28,35 @@ const Counters = ({handleWin, player1, player2}) => {
             handleWin('player2', counterObj.c2, counterObj.c1);
         } 
         //  eslint-disable-next-line
-
     }, [counterObj])
 
     return (
-        <div>
-            <p>{player1}</p>
-            <button
-                onClick={() => { increment('c1') }}
-                className={serve}>{counterObj.c1}
-            </button>
-            <p>{player2}</p>
-            <button
-                onClick={() => { increment('c2') }}
-                data-testid="counter-button"
-                className={serve === 'noserve' ? 'serve' : 'noserve'}>{counterObj.c2}
-            </button>
+        <div className="buttons-container">
+            <div>
+                <p className="player-name">{player1}</p>
+                <button
+                    onClick={() => { increment('c1') }}
+                    >
+                        <span className="shadow"></span>
+                        <span className="edge"></span>
+                        <span className="front text"> {counterObj.c1}
+                        </span>
+                </button>
+                <p className={serve}>SERVE</p>
+            </div>
+            <img className="VS" src={VS} alt={"VS"}/>
+            <div>
+                <p className="player-name">{player2}</p>
+                <button
+                    onClick={() => { increment('c2') }}
+                    data-testid="counter-button">
+                        <span className="shadow"></span>
+                        <span className="edge"></span>
+                        <span className="front text">{counterObj.c2}</span>
+                </button>
+                <p className={serve === 'noserve' ? 'serve' : 'noserve'}>SERVE</p>
+            </div>
+            
         </div>
     )
 }
