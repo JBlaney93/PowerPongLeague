@@ -145,10 +145,6 @@ const GameForm = ({ addToGameHistory, players }) => {
                     to="/game-history">
                     RECENT GAMES</Link>
             </div>
-
-            {gameWon ?
-                <Link className="back-to-menu" to="/game-form">PLAY AGAIN</Link>
-                : null}
         </div>
     )
 }

@@ -28,7 +28,6 @@ const GameHistory = ({ gameHistory }) => {
                             {gameList}
                         </ul>
                 </div>
-                <Link className ="back-to-menu" to="/">BACK TO MAIN MENU</Link>
            </div>
    )
 }
