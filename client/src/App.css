@@ -657,6 +657,10 @@ button {
   padding: 10px;
 }
 
+.table-item {
+  font-size: 30px;
+}
+
 
 /* ================================== */
 /* GAME HISTORY */
