@@ -5,7 +5,7 @@ const TableRow = ({index, player}) => {
     const win_percent = (player.win_percentage*100).toFixed(2);
 
     return(
-        <tr>
+        <tr className="table-item">
             <td>{index+1}</td>
             <td>{player.name}</td>
             <td>{player.wins}</td>
