@@ -35,13 +35,13 @@ const WinScreen = ({handleSaveGame, endGame, handleReset}) => {
     return (
         <div>
             <p className="game-over">GAME OVER</p>
-            <p>result:</p>
-            <p>{gameInfo.winner} {endGame.w_score} - {endGame.l_score} {gameInfo.loser}</p>
+            {/* <p className="result">RESULT</p> */}
+            <p className="result">{gameInfo.winner} {endGame.w_score} - {endGame.l_score} {gameInfo.loser}</p>
             <div className="win-screen-menu">
                 {!gameSaved? 
                 (<button className="confirm-button" onClick={handleSaveGameClicked}>SAVE GAME</button>):
-                (<button className="inactive-confirm-button">game saved</button>)}
-                <button className="back-to-menu" onClick={handlePlayAgainClicked}>play again</button>
+                (<button className="inactive-confirm-button">GAME SAVED</button>)}
+                <button className="back-to-menu" onClick={handlePlayAgainClicked}>PLAY AGAIN</button>
             </div>
         </div>
     )
