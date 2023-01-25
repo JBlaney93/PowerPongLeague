@@ -1,5 +1,7 @@
 const TableRow = ({index, player}) => {
 
+    
+
     const win_percent = (player.win_percentage*100).toFixed(2);
 
     return(

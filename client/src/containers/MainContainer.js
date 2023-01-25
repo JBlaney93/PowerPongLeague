@@ -42,8 +42,13 @@ const MainContainer = () => {
         GameService.addGame(game)
         .then(res => GameService.findGame(res.insertedId))
         .then(res => duplicate.push(res))
-        .then(()=>setGameHistory(duplicate))
-               
+        .then(()=>{
+            setGameHistory(duplicate)
+            LeaderboardService.getLeaderboard()
+            .then((res)=>{
+                setLeaderboard(res[0])
+            });
+        });          
     }
 
     const addToPlayers = (player) => {
@@ -52,7 +57,13 @@ const MainContainer = () => {
         PlayerService.addPlayer(player)
         .then(res => PlayerService.findPlayer(res.insertedId))
         .then(res => duplicate.push(res))
-        .then(()=> setPlayers(duplicate));
+        .then(()=>{
+            setGameHistory(duplicate)
+            LeaderboardService.getLeaderboard()
+            .then((res)=>{
+                setLeaderboard(res[0])
+            });
+        }); 
 
     }
 
