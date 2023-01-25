@@ -726,15 +726,16 @@ button {
 }
 
 .player-names-div {
+  font-family: 'Exo 2', sans-serif;
   display:flex;
   flex-direction: column;
 }
+
 
 .winner-loser-div {
   display: flex;
  justify-content: space-evenly;
 }
-
 
 
 .win-screen-menu {
