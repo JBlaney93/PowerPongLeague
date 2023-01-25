@@ -24,13 +24,17 @@ Our group project is an app designed for mobile that will allow you to track pin
 
 * Feature that shows list of past games played and scores in chronological order
 
-* Feature to display list of available players, which also allows user to add and remove players
+* Feature to display list of available players, which also allows user to add players
 
 * Back-end database that stores players and games played that the front end can display and update.
 
 ## Extensions
 
 * The app should be able to display a leaderboard or league table with individual player ranks
+
+* Ability to "archive" or "soft delete" players
+
+* Error handling for user input
 
 * It could also show you the head-to-head record for two players
 
@@ -39,4 +43,5 @@ Our group project is an app designed for mobile that will allow you to track pin
 * Interactive styling with potential for animation, sound, and responsive feedback
 
 * Layout that scales between mobile and desktop smoothly
+
 
