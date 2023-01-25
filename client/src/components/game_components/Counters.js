@@ -35,7 +35,6 @@ const Counters = ({handleWin, player1, player2}) => {
                 <p className="player-name">{player1}</p>
                 <button
                     onClick={() => { increment('c1') }}
-                    className={serve}
                     >
                         <span className="shadow"></span>
                         <span className="edge"></span>
@@ -49,8 +48,7 @@ const Counters = ({handleWin, player1, player2}) => {
                 <p className="player-name">{player2}</p>
                 <button
                     onClick={() => { increment('c2') }}
-                    data-testid="counter-button"
-                    className={serve === 'noserve' ? 'serve' : 'noserve'}>
+                    data-testid="counter-button">
                         <span className="shadow"></span>
                         <span className="edge"></span>
                         <span className="front text">{counterObj.c2}</span>

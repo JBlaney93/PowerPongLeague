@@ -17,7 +17,7 @@ const GameHistory = ({ gameHistory }) => {
 
 
    return(
-           <div>
+           <div className="game-history-page">
                 <div className="game-history-container">
                     <p className="game-history-header">RECENTLY PLAYED</p>
                     <div className="winner-loser-div">

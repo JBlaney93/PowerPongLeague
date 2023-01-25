@@ -31,11 +31,7 @@ const GameItem = ({ game, index }) => {
     return(
         <div className="player-names-div">
             <p className="game-history-p1"><span className="player-score-text">{winner.name} {game.w_score}  -  {game.l_score} {loser.name}</span></p>
-            <p className="game-history-p2"> {day} / {month} / {year}{timeString}</p>
-            {/* <p>WINNER: {winner.name} - Score: {game.w_score}</p>
-            <p>LOSER: {loser.name} - Score {game.l_score}</p>
-            <p>{day} / {month} / {year}</p>
-            <p>{timeString}</p> */}
+            <p className="game-history-p2"> {day} / {month} / {year} | {timeString}</p>
         </div>
     )
 }
