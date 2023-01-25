@@ -32,9 +32,3 @@ const PlayerStats = (payload) => {
 }
 
 module.exports = PlayerStats;
-
-
-
-        // player.games_played = winCounter + lossesCounter;
-        // player.winpercentage = winCounter/player.games_played;
-        // player.weighted_score = player.winpercentage*player.games_played;

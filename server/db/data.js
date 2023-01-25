@@ -3,11 +3,12 @@ const playersData = [
     {name: "Lee"},
     {name: "Kyle"},
     {name: "Kelsie"},
-    {name: "James Boag"},
+    {name: "Boag"},
     {name: "Josh Mackie"},
     {name: "Séamus"},
-    {name: "James Blaney"},
-    {name: "Jill"}
+    {name: "Blaney"},
+    {name: "Jill"},
+    {name: "Steve"}
 ];
 
 const gamesData = [
