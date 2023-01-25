@@ -97,7 +97,7 @@ const GameForm = ({ addToGameHistory, players }) => {
 
 
     return (
-        <div>
+        <div className="main-menu-container">
             {!playersConfirmed ?
                 <div className="player-select">
                     <fieldset className="player-select-form">

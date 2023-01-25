@@ -18,7 +18,7 @@ const Leaderboard = ({ leaderboard }) => {
     })
 
     return (
-        <div>
+        <div className="main-menu-container">
             <fieldset className="leaderboard-box">
                 <legend className="leaderboard-heading">LEADERBOARD</legend>
                 <table>

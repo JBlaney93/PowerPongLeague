@@ -29,7 +29,7 @@ const PlayerForm = ({ addToPlayers }) => {
     }
 
     return (
-        <div>
+        <div className="main-menu-container">
             {profileCreated ? (
                 <div>
                     <p style={{ color: "green" }}>Profile created</p>

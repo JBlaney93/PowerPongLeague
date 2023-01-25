@@ -124,6 +124,15 @@ main {
   flex: 1;
 }
 
+.general-fieldset {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: flex-end;
+  font-family: 'Genos', sans-serif;
+  text-decoration: none;
+}
 
  /* ============================= */
  /* MAIN MENU */
@@ -144,7 +153,6 @@ main {
   color: rgb(222, 222, 222);
  }
  
- 
  .main-menu-container1 {
   display:flex;
   flex-direction: column;
@@ -163,7 +171,6 @@ main {
   background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%,rgba(0, 0, 0, 0.350) 50%,rgba(0, 0, 0, 0.350) 51%,rgba(0, 0, 0, 0) 99%,rgba(229,229,229,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
  }
  
-
 .image-container {
   display: flex;
   flex-direction: column;
@@ -403,7 +410,21 @@ select {
 
  
 .serve {
-  color: green;
+  /* color: green; */
+  font-family: 'Exo 2', sans-serif;
+  font-size: 30px;
+  font-weight: 300;
+  font-style: italic;
+  color: #fff;
+  text-shadow:
+      0 0 7px #00ff3c,
+      0 0 10px #00ff3c,
+      0 0 21px #00ff3c,
+      0 0 42px #00d532,
+      0 0 82px #00d532,
+      0 0 92px #00d532,
+      0 0 102px #2eff5e,
+      0 0 151px #2eff5e;
 }
 
 .noserve {
@@ -447,23 +468,33 @@ button {
   border-radius: 12px;
   background: linear-gradient(
      to left,
-     hsl(340deg 100% 16%) 0%,
-     hsl(340deg 100% 32%) 8%,
-     hsl(340deg 100% 32%) 92%,
-     hsl(340deg 100% 16%) 100%
+     rgb(81, 0, 82) 0%,
+     rgb(86, 2, 107) 8%,
+     rgb(113, 2, 154) 92%,
+     rgb(73, 0, 73) 100%
    );
  }
  
  .front {
   display: block;
   position: relative;
-  padding: 12px 27px;
   border-radius: 12px;
-  font-size: 3rem;
+  font-size: 4rem;
+  padding: 0 30px ;
+  font-weight: 300;
   color: white;
-  background: hsl(345deg 100% 47%);
+  text-shadow:
+  0 0 7px white,
+  0 0 10px #ffffff,
+  0 0 21px #ffffff,
+  0 0 42px #ffffff,
+  0 0 82px #ffffff,
+  0 0 92px #ffffff,
+  0 0 102px #ffffff,
+  0 0 151px #ffffff;
+  background: #db04fcc4;
   will-change: transform;
-  transform: translateY(-4px);
+  transform: translateY(-10px);
   transition: transform
      600ms
      cubic-bezier(.3, .7, .4, 1);
@@ -474,7 +505,7 @@ button {
  }
  
  button:hover .front {
-  transform: translateY(-6px);
+  transform: translateY(-8px);
   transition: transform
      250ms
      cubic-bezier(.3, .7, .4, 1.5);
@@ -626,9 +657,90 @@ button {
   padding: 10px;
 }
 
+
+/* ================================== */
+/* GAME HISTORY */
+.game-history-page {
+  text-align: center;
+}
+
+.game-history-container {
+  color: white;
+  border-radius: 10px;
+  /* background-color: rgba(240, 248, 255, 0.124); */
+  /* text-align: center; */
+}
+
+.game-history-header {
+  font-family: 'Exo 2', sans-serif;
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.game-history-p1 {
+  font-size: 32px;
+}
+.game-history-p2 {
+  font-size: 20px;
+  margin-top: -15px;
+  margin-bottom: 15px;
+}
+
+.winner-text {
+  /* color: green; */
+  font-family: 'Exo 2', sans-serif;
+  font-size: 38px;
+  font-weight: 300;
+  color: #fff;
+  text-shadow:
+      0 0 7px #ff7aff,
+      0 0 10px #ff7aff,
+      0 0 21px #ff7aff,
+      0 0 42px #ff7aff,
+      0 0 82px #ff7aff,
+      0 0 92px #FF00FF,
+      0 0 102px #FF00FF,
+      0 0 151px #FF00FF;
+}
+
+.loser-text {
+  /* color:red ; */
+  font-family: 'Exo 2', sans-serif;
+  font-size: 38px;
+  font-weight: 300;
+  color: #fff;
+  text-shadow:
+      0 0 7px #00ffff,
+      0 0 10px #00ffff,
+      0 0 21px #00ffff,
+      0 0 42px #0099ff,
+      0 0 82px #0099ff,
+      0 0 92px #0099ff,
+      0 0 102px #0011ff,
+      0 0 151px #0011ff;
+}
+
+.player-score-text {
+  font-size: 36px;
+  font-weight: 400;
+}
+
+.player-names-div {
+  display:flex;
+  flex-direction: column;
+}
+
+.winner-loser-div {
+  display: flex;
+ justify-content: space-evenly;
+}
+
+
+
 .win-screen-menu {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
 }
+
