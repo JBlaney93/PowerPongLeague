@@ -58,7 +58,7 @@ const MainContainer = () => {
         .then(res => PlayerService.findPlayer(res.insertedId))
         .then(res => duplicate.push(res))
         .then(()=>{
-            setGameHistory(duplicate)
+            setPlayers(duplicate)
             LeaderboardService.getLeaderboard()
             .then((res)=>{
                 setLeaderboard(res[0])

@@ -1,0 +1,38 @@
+.player-menu-container {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: 'Genos', sans-serif;
+    text-decoration: none;
+    color: rgb(222, 222, 222);
+}
+
+.player-profile-form {
+    border-radius: 20px;
+    padding: 4rem;
+}
+
+.players-screen {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.player-list > h2 {
+    color: white;
+}
+
+.player-list > ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.player-list > ul > li {
+    font-size: 16px;
+    color: white;
+    
+}
