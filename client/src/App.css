@@ -269,8 +269,11 @@ li {
  }
 
 select {
- background-color: white;
- padding: 10px;
+ font-size: 25px;
+ width: 200px;
+ background-color: rgb(222, 222, 222);
+ padding: 5px;
+ padding-left: 12px;
  color: black;
  border-style: none;
  border-radius: 17px;
